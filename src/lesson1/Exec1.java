@@ -1,8 +1,8 @@
 package lesson1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Exec1 {
@@ -18,12 +18,13 @@ public class Exec1 {
         employees.add(employee3);
 
         System.out.println(employees);
-        Collections.sort(employees);
+        employees.sort(new IdComparator());
         System.out.println(employees);
     }
 }
 
-class Employee implements Comparable<Employee> {
+//Comparable<Employee>
+class Employee {
     private final int id;
     private final String name;
     private final String surname;
@@ -36,6 +37,22 @@ class Employee implements Comparable<Employee> {
         this.salary = salary;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -46,13 +63,28 @@ class Employee implements Comparable<Employee> {
                 '}';
     }
 
+//    @Override
+//    public int compareTo(Employee employee) {
+////        return Integer.compare(this.id, employee.id);
+//        int res = this.name.compareTo(employee.name);
+//        if (res == 0) {
+//            res = this.surname.compareTo(employee.surname);
+//        }
+//        return res;
+//    }
+}
+
+class IdComparator implements Comparator<Employee> {
     @Override
-    public int compareTo(Employee employee) {
-//        return Integer.compare(this.id, employee.id);
-        int res = this.name.compareTo(employee.name);
-        if (res == 0) {
-            res = this.surname.compareTo(employee.surname);
+    public int compare(Employee emp1, Employee emp2) {
+        if (emp1.getId() != emp2.getId()) {
+            if (emp1.getId() < emp2.getId()) {
+                return -1;
+            } else {
+                return 1;
+            }
+        } else {
+            return 0;
         }
-        return res;
     }
 }
