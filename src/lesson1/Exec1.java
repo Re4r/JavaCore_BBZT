@@ -48,13 +48,11 @@ class Employee implements Comparable<Employee> {
 
     @Override
     public int compareTo(Employee employee) {
-        if (this.id == employee.id) {
-            return 0;
-        } else if (this.id < employee.id) {
-            return -1;
-        } else {
-            return 1;
+//        return Integer.compare(this.id, employee.id);
+        int res = this.name.compareTo(employee.name);
+        if (res == 0) {
+            res = this.surname.compareTo(employee.surname);
         }
-
+        return res;
     }
 }
