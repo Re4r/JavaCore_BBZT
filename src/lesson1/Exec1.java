@@ -20,6 +20,12 @@ public class Exec1 {
         System.out.println(employees);
         employees.sort(new IdComparator());
         System.out.println(employees);
+        employees.sort(new NameComparator());
+        System.out.println(employees);
+        employees.sort(new SurnameComparator());
+        System.out.println(employees);
+        employees.sort(new SalaryComparator());
+        System.out.println(employees);
     }
 }
 
@@ -86,5 +92,26 @@ class IdComparator implements Comparator<Employee> {
         } else {
             return 0;
         }
+    }
+}
+class NameComparator implements Comparator<Employee> {
+
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return emp1.getName().compareTo(emp2.getName());
+    }
+}
+class SurnameComparator implements Comparator<Employee> {
+
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return emp1.getSurname().compareTo(emp2.getSurname());
+    }
+}
+class SalaryComparator implements Comparator<Employee> {
+
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return Integer.compare(emp1.getSalary(), emp2.getSalary());
     }
 }
