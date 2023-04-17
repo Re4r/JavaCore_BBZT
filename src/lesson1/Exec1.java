@@ -1,6 +1,7 @@
 package lesson1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class Exec1 {
     public static void main(String[] args) {
         List<Employee> employees = new ArrayList<>();
 
-        Employee employee1 = new Employee(100, "Fasert", "Looper", 400);
+        Employee employee1 = new Employee(500, "Fasert", "Looper", 400);
         Employee employee2 = new Employee(200, "Utrep", "Lirety", 300);
         Employee employee3 = new Employee(700, "Treyu", "Gertuo", 700);
 
@@ -17,8 +18,8 @@ public class Exec1 {
         employees.add(employee3);
 
         System.out.println(employees);
-
-
+        Collections.sort(employees);
+        System.out.println(employees);
     }
 }
 
