@@ -1,6 +1,7 @@
 package lesson1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exec1 {
@@ -15,16 +16,17 @@ public class Exec1 {
         employees.add(employee2);
         employees.add(employee3);
 
+        System.out.println(employees);
 
 
     }
 }
 
-class Employee {
-    private int id;
-    private String name;
-    private String surname;
-    private int salary;
+class Employee implements Comparable<Employee> {
+    private final int id;
+    private final String name;
+    private final String surname;
+    private final int salary;
 
     public Employee(int id, String name, String surname, int salary) {
         this.id = id;
@@ -41,5 +43,17 @@ class Employee {
                 ", surname='" + surname + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Employee employee) {
+        if (this.id == employee.id) {
+            return 0;
+        } else if (this.id < employee.id) {
+            return -1;
+        } else {
+            return 1;
+        }
+
     }
 }
