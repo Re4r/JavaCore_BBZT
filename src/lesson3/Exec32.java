@@ -3,14 +3,18 @@ package lesson3;
 public class Exec32 {
     public static void main(String[] args) {
 
-        Info<String> info = new Info<>("Hello");
-        String s = info.getValue();
-        System.out.println(info);
-        System.out.println(s);
-        Info<Integer> info1 = new Info<>(444);
-        Integer i = info1.getValue();
-        System.out.println(info1);
-        System.out.println(i);
+//        Info<String> info = new Info<>("Hello");
+//        String s = info.getValue();
+//        System.out.println(info);
+//        System.out.println(s);
+//        Info<Integer> info1 = new Info<>(444);
+//        Integer i = info1.getValue();
+//        System.out.println(info1);
+//        System.out.println(i);
+
+        Pair<Integer, String> pair = new Pair<>(100, "Hundred");
+        System.out.println(pair);
+        System.out.println(pair.getV1()+ " - " + pair.getV2());
 
     }
 }
