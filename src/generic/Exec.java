@@ -8,13 +8,22 @@ public class Exec {
         Box<Glass> glassBox = new Box<>(new Glass());
 
         TwoCellsBox<Paper, Plastic> paperPlasticTwoCellsBox;
-        paperPlasticTwoCellsBox = new TwoCellsBox<>(new Paper(),new Plastic());
+        paperPlasticTwoCellsBox = new TwoCellsBox<>(new Paper(), new Plastic());
         TwoCellsBox<Plastic, Glass> plasticGlassTwoCellsBox;
         plasticGlassTwoCellsBox = new TwoCellsBox<>(new Plastic(), new Glass());
 
     }
 }
 
-class Paper {}
-class Plastic {}
-class Glass {}
+class Paper implements GarbageHandler {
+    @Override
+    public void handle(Object what, Object how) {
+        System.out.println("Paper handled...");
+    }
+}
+
+class Plastic {
+}
+
+class Glass {
+}
