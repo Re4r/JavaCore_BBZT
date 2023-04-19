@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Team {
+public class Team<T> {
     private String name;
-    private List<Participants> participants = new ArrayList<>();
+    private List<T> participants = new ArrayList<>();
 
     public Team(String name) {
         this.name = name;
     }
 
-    public void newAddPlayer(Participants p) {
-        participants.add(p);
-        System.out.println("Team: " + name + " New Player: " + p.getName());
+    public void newAddPlayer(T player) {
+        participants.add(player);
+        System.out.printf("Team: %s New Player: %s%n", name, ((Participants) player).getName());
     }
 
     public void playWith(Team team) {

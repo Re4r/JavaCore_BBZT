@@ -12,5 +12,11 @@ public class Exec37 {
         Employee employee1 = new Employee("Meryb", 35);
         Employee employee2 = new Employee("Hertop", 28);
 
+        Team schoolars = new Team("Dragons");
+        Team students = new Team("Robots");
+        Team employees = new Team("Fishes");
+
+
+
     }
 }
