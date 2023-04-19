@@ -7,8 +7,8 @@ public class Exec {
     public static void main(String[] args) {
 
         Box<Paper> paperBox = new Box<>(new Paper());
-        Box<Paper> plasticBox = new Box<Paper>(new Plastic());
-        Box<Paper> glassBox = new Box<Paper>(new Glass());
+        Box<Plastic> plasticBox = new Box<>(new Plastic());
+        Box<Glass> glassBox = new Box<>(new Glass());
 
         List<Box> list = new ArrayList<>();
 
