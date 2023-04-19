@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Team<T> {
+public class Team<T extends Participants> {
     private String name;
     private List<T> participants = new ArrayList<>();
 
@@ -14,10 +14,10 @@ public class Team<T> {
 
     public void newAddPlayer(T player) {
         participants.add(player);
-        System.out.printf("Team: %s New Player: %s%n", name, ((Participants) player).getName());
+        System.out.printf("Team: %s New Player: %s%n", name, player.getName());
     }
 
-    public void playWith(Team team) {
+    public void playWith(Team<T> team) {
         String winner;
         Random random = new Random();
         int x = random.nextInt(2);

@@ -13,11 +13,14 @@ public class Exec37 {
         Employee employee2 = new Employee("Hertop", 28);
 
         Team<Scholar> schoolars = new Team("Dragons");
+        Team<Scholar> schoolars2 = new Team("DragonsFly");
         Team<Student> students = new Team("Robots");
         Team<Employee> employees = new Team("Fishes");
 
         schoolars.newAddPlayer(scholar1);
         schoolars.newAddPlayer(scholar2);
+        schoolars2.newAddPlayer(scholar1);
+        schoolars2.newAddPlayer(scholar2);
 
         students.newAddPlayer(student1);
         students.newAddPlayer(student2);
@@ -25,7 +28,7 @@ public class Exec37 {
         employees.newAddPlayer(employee1);
         employees.newAddPlayer(employee2);
 
-
+        schoolars.playWith(schoolars2);
 
 
 
