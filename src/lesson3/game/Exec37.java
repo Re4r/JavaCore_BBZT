@@ -12,9 +12,20 @@ public class Exec37 {
         Employee employee1 = new Employee("Meryb", 35);
         Employee employee2 = new Employee("Hertop", 28);
 
-        Team schoolars = new Team("Dragons");
-        Team students = new Team("Robots");
-        Team employees = new Team("Fishes");
+        Team<Scholar> schoolars = new Team("Dragons");
+        Team<Student> students = new Team("Robots");
+        Team<Employee> employees = new Team("Fishes");
+
+        schoolars.newAddPlayer(scholar1);
+        schoolars.newAddPlayer(scholar2);
+
+        students.newAddPlayer(student1);
+        students.newAddPlayer(student2);
+
+        employees.newAddPlayer(employee1);
+        employees.newAddPlayer(employee2);
+
+
 
 
 
