@@ -15,15 +15,29 @@ public class Exec {
     }
 }
 
-class Paper implements GarbageHandler {
-    @Override
-    public void handle(Object what, Object how) {
-        System.out.println("Paper handled...");
-    }
+class Paper {
+
 }
 
 class Plastic {
 }
 
 class Glass {
+}
+
+class PaperHandler<T> implements GarbageHandler<Paper, T> {
+
+    public <T, S> void handler(T how, S what) {
+
+    }
+
+    @Override
+    public void handle(Paper what, T how) {
+
+    }
+
+    @Override
+    public <E> void transfer(E dangerousWaste) {
+
+    }
 }
