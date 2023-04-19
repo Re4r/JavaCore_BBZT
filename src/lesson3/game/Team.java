@@ -26,6 +26,6 @@ public class Team {
         } else {
             winner = team.name;
         }
-        System.out.println(winner);
+        System.out.println("Team: " + winner + " Win");
     }
 }
