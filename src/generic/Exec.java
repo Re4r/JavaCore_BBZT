@@ -7,6 +7,11 @@ public class Exec {
         Box<Plastic> plasticBox = new Box<>(new Plastic());
         Box<Glass> glassBox = new Box<>(new Glass());
 
+        TwoCellsBox<Paper, Plastic> paperPlasticTwoCellsBox;
+        paperPlasticTwoCellsBox = new TwoCellsBox<>(new Paper(),new Plastic());
+        TwoCellsBox<Plastic, Glass> plasticGlassTwoCellsBox;
+        plasticGlassTwoCellsBox = new TwoCellsBox<>(new Plastic(), new Glass());
+
     }
 }
 
