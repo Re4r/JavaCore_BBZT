@@ -39,9 +39,16 @@ public class Exec431 {
         ArrayList<Student> students2 = new ArrayList<>();
 
         students2.addAll(students);
-        students2.addAll(students1);
+        students2.addAll(0, students1);
 
         showList(students2);
+
+        students2.remove(student2);
+
+        showList(students2);
+
+        System.out.println(students2.indexOf(student3));
+        System.out.println(students2.lastIndexOf(student3));
 
 
     }
