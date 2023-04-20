@@ -59,6 +59,14 @@ public class Exec451 {
         System.out.println(Arrays.toString(sbArray));
         System.out.println("---------------------------------------------");
 
+        List<StringBuilder> list = List.of(sbArray);
+        System.out.println(list);
+        System.out.println("---------------------------------------------");
+
+        List<StringBuilder> list1 = List.copyOf(list);
+        System.out.println(list1);
+        System.out.println("---------------------------------------------");
+
 
 
 
