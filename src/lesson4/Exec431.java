@@ -56,6 +56,9 @@ public class Exec431 {
         System.out.println(students2.isEmpty());
         System.out.println(students2.size());
 
+        System.out.println(students.contains(student));
+        System.out.println(students.containsAll(students1));
+
 
     }
 
