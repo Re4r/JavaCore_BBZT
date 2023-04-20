@@ -11,7 +11,6 @@ public class Exec431 {
         Student student2 = new Student("CCC", 'F', 39);
         Student student3 = new Student("CCC", 'F', 39);
 
-
         ArrayList<Student> students = new ArrayList<>();
 
         students.add(student);
@@ -22,30 +21,41 @@ public class Exec431 {
         ArrayList<Student> students1 = new ArrayList<>(students);
 
         System.out.println("--------------------------------------");
-        for (Student st : students) {
-            System.out.println(st);
-        }
-        System.out.println("--------------------------------------");
+
+        showList(students);
 
         students.remove(student3);
         students1.remove(student1);
 
-        for (Student st : students) {
-            System.out.println(st);
-        }
-        System.out.println("--------------------------------------");
-
-        for (Student st : students1) {
-            System.out.println(st);
-        }
-        System.out.println("--------------------------------------");
+        showList(students);
+        showList(students1);
 
         for (int i = 0; i < students.size(); i++) {
             boolean result = students.get(i).equals(students1.get(i));
             System.out.println(result);
         }
         System.out.println("--------------------------------------");
+
+        ArrayList<Student> students2 = new ArrayList<>();
+
+        students2.addAll(students);
+        students2.addAll(students1);
+
+        showList(students2);
+
+
+
     }
+
+    public static void showList(ArrayList<Student> list) {
+        for (Student st : list) {
+            System.out.println(st);
+        }
+        System.out.println("--------------------------------------");
+    }
+
+
+
 }
 
 class Student {
