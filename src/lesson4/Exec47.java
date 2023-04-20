@@ -26,11 +26,18 @@ public class Exec47 {
         System.out.println(citizenLinkedList.get(2));
         System.out.println("------------------------------------");
 
-        citizenLinkedList.add(citizen6);
-        citizenLinkedList.add(citizen7);
+        citizenLinkedList.add(1, citizen6);
+        citizenLinkedList.add(3,citizen7);
 
         showCitizens(citizenLinkedList);
         System.out.println("------------------------------------");
+
+        citizenLinkedList.remove(citizen5);
+
+        showCitizens(citizenLinkedList);
+        System.out.println("------------------------------------");
+
+
 
 
 
