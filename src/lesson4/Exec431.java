@@ -8,16 +8,27 @@ public class Exec431 {
         Student student = new Student("AAA", 'F', 33);
         Student student1 = new Student("BBB", 'M', 29);
         Student student2 = new Student("CCC", 'F', 39);
+        Student student3 = new Student("CCC", 'F', 39);
 
-        ArrayList<Student> students = new ArrayList<>(3);
+
+        ArrayList<Student> students = new ArrayList<>();
+
         students.add(student);
         students.add(student1);
         students.add(student2);
+        students.add(student3);
 
+        System.out.println("--------------------------------------");
         for (Student st : students) {
             System.out.println(st);
         }
+        System.out.println("--------------------------------------");
 
+        students.remove(student3);
+        for (Student st : students) {
+            System.out.println(st);
+        }
+        System.out.println("--------------------------------------");
     }
 }
 
