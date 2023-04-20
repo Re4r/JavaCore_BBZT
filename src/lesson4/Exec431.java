@@ -19,6 +19,8 @@ public class Exec431 {
         students.add(student2);
         students.add(student3);
 
+        ArrayList<Student> students1 = new ArrayList<>(students);
+
         System.out.println("--------------------------------------");
         for (Student st : students) {
             System.out.println(st);
@@ -26,9 +28,21 @@ public class Exec431 {
         System.out.println("--------------------------------------");
 
         students.remove(student3);
+        students1.remove(student1);
 
         for (Student st : students) {
             System.out.println(st);
+        }
+        System.out.println("--------------------------------------");
+
+        for (Student st : students1) {
+            System.out.println(st);
+        }
+        System.out.println("--------------------------------------");
+
+        for (int i = 0; i < students.size(); i++) {
+            boolean result = students.get(i).equals(students1.get(i));
+            System.out.println(result);
         }
         System.out.println("--------------------------------------");
     }
