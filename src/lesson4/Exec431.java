@@ -44,7 +44,6 @@ public class Exec431 {
         showList(students2);
 
 
-
     }
 
     public static void showList(ArrayList<Student> list) {
@@ -53,7 +52,6 @@ public class Exec431 {
         }
         System.out.println("--------------------------------------");
     }
-
 
 
 }
