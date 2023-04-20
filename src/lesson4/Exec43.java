@@ -11,6 +11,10 @@ public class Exec43 {
         System.out.println(integers);
         for (int i = 0; i < integers.size(); i++) integers1.add(i, integers.get(i));
         System.out.println(integers1);
+        for (int i = 0; i < integers1.size(); i++) {
+            integers1.set(i, integers.get(integers.size() - (i + 1)));
+        }
+        System.out.println(integers1);
 
     }
 }
