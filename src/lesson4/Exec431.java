@@ -1,6 +1,7 @@
 package lesson4;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Exec431 {
     public static void main(String[] args) {
@@ -25,6 +26,7 @@ public class Exec431 {
         System.out.println("--------------------------------------");
 
         students.remove(student3);
+
         for (Student st : students) {
             System.out.println(st);
         }
@@ -49,5 +51,23 @@ class Student {
                 "name: '" + name + '\'' +
                 ", sex: " + sex +
                 ", age: " + age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student student)) return false;
+
+        if (sex != student.sex) return false;
+        if (age != student.age) return false;
+        return name.equals(student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + (int) sex;
+        result = 31 * result + age;
+        return result;
     }
 }
