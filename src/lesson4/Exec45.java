@@ -14,24 +14,31 @@ public class Exec45 {
         StringBuilder builder5 = new StringBuilder("EEE");
 
         StringBuilder[] builders = {builder1, builder2, builder3, builder4, builder5};
+        StringBuilder[] builders2 = {builder1, builder2, builder3, builder4, builder5};
 
         List<StringBuilder> stringBuilderList = Arrays.asList(builders);
+        List<StringBuilder> stringBuilderList2 = Arrays.asList(builders2);
+
 
         System.out.println(stringBuilderList);
+        System.out.println(stringBuilderList2);
+        System.out.println("------------------");
 
-        builders[builders.length - 1] = new StringBuilder("FFF");
-        for (var sb : builders) {
-            sb.append("\\");
-        }
+        builders[0] = new StringBuilder("FFF");
+        builders2[0] = new StringBuilder("GGG");
+
+//        for (var sb : builders) {
+//            sb.append("\\");
+//        }
 
         System.out.println(stringBuilderList);
+        System.out.println(stringBuilderList2);
+        System.out.println("------------------");
 
-        List<StringBuilder> stringBuilderList1 = new ArrayList<>(stringBuilderList);
-
-        stringBuilderList1.remove(builder1);
-        System.out.println(stringBuilderList1);
-        stringBuilderList.removeAll(stringBuilderList1);
+        stringBuilderList.removeAll(stringBuilderList2);
         System.out.println(stringBuilderList);
+
+
 
 
 
