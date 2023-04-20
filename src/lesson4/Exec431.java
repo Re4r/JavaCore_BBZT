@@ -49,6 +49,12 @@ public class Exec431 {
 
         System.out.println(students2.indexOf(student3));
         System.out.println(students2.lastIndexOf(student3));
+        System.out.println(students2.isEmpty());
+        System.out.println(students2.size());
+        students2.clear();
+        students2.trimToSize();
+        System.out.println(students2.isEmpty());
+        System.out.println(students2.size());
 
 
     }
