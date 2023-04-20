@@ -1,6 +1,7 @@
 package lesson4;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Exec451 {
@@ -48,6 +49,15 @@ public class Exec451 {
         subListSbl1.addAll(stringBuilderList);
         System.out.println(subListSbl1);
         System.out.println(stringBuilderList1);
+        System.out.println("---------------------------------------------");
+
+        Object[] objArray = stringBuilderList1.toArray();
+        System.out.println(Arrays.toString(objArray));
+        System.out.println("---------------------------------------------");
+
+        StringBuilder[] sbArray = stringBuilderList1.toArray(new StringBuilder[0]);
+        System.out.println(Arrays.toString(sbArray));
+        System.out.println("---------------------------------------------");
 
 
 
