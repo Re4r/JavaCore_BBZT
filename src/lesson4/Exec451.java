@@ -28,9 +28,31 @@ public class Exec451 {
         System.out.println(stringBuilderList.equals(stringBuilderList1));
 
         stringBuilderList.set(0, new StringBuilder("JJJ"));
+
         System.out.println(stringBuilderList);
+
         System.out.println(stringBuilderList.equals(stringBuilderList1));
-        stringBuilderList.removeAll(stringBuilderList1);
+
+//        stringBuilderList.removeAll(stringBuilderList1);
+        stringBuilderList.retainAll(stringBuilderList1);
+
         System.out.println(stringBuilderList);
+        System.out.println(stringBuilderList1);
+
+        System.out.println(stringBuilderList.containsAll(stringBuilderList1));
+        System.out.println(stringBuilderList1.containsAll(stringBuilderList));
+
+        List<StringBuilder> subListSbl1 = stringBuilderList1.subList(1, stringBuilderList1.size());
+        System.out.println(subListSbl1);
+
+        subListSbl1.addAll(stringBuilderList);
+        System.out.println(subListSbl1);
+        System.out.println(stringBuilderList1);
+
+
+
+
+
+
     }
 }
