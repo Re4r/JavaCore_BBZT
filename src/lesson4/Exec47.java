@@ -27,7 +27,7 @@ public class Exec47 {
         System.out.println("------------------------------------");
 
         citizenLinkedList.add(1, citizen6);
-        citizenLinkedList.add(3,citizen7);
+        citizenLinkedList.add(3, citizen7);
 
         showCitizens(citizenLinkedList);
         System.out.println("------------------------------------");
@@ -37,11 +37,8 @@ public class Exec47 {
         showCitizens(citizenLinkedList);
         System.out.println("------------------------------------");
 
-
-
-
-
     }
+
     static void showCitizens(List<Citizen> citizens) {
         for (Citizen c : citizens) {
             System.out.println(c);
