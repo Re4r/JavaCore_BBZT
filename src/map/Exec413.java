@@ -22,6 +22,16 @@ public class Exec413 {
 
         showMap(map);
 
+        Iterator iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry pair = (Map.Entry) iterator.next();
+            if ((Integer) pair.getKey() > 50) {
+                iterator.remove();
+            }
+        }
+
+        showMap(map);
+
 
 
     }
