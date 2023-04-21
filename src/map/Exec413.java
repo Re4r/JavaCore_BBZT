@@ -32,6 +32,17 @@ public class Exec413 {
 
         showMap(map);
 
+        for (int i = 0; i < map.size(); i++) {
+            boolean key = map.containsKey(new Random().nextInt(100));
+            boolean value = map.containsValue(Double.toString(new Random().nextDouble(100)));
+            System.out.println("key: " + key + " value: " + value);
+
+        }
+        System.out.println("-------------------------------------------------------------");
+
+        System.out.println(map.keySet());
+        System.out.println(map.values());
+
 
 
     }
