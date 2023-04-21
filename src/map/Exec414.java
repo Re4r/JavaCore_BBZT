@@ -10,6 +10,7 @@ public class Exec414 {
         Map<Integer, Cobalt> map = new HashMap<>();
         mapFiller(map, 10);
         showMap(map);
+        showHashCode(map);
 
 
 
@@ -25,10 +26,21 @@ public class Exec414 {
         }
     }
     static <K, V> void showMap(Map<K, V> map) {
+        int counter = 0;
         for (Map.Entry<K, V> entry : map.entrySet()) {
-            System.out.println("key: " + entry.getKey() + " value: " + entry.getValue());
+            counter++;
+            System.out.println(counter + " key: " + entry.getKey() + " value: " + entry.getValue());
         }
-        System.out.println("---------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------");
+    }
+
+    static <K, V> void showHashCode(Map<K, V> map) {
+        int counter = 0;
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            counter++;
+            System.out.println(counter + " value_hashcode: " + entry.getValue().hashCode());
+        }
+        System.out.println("------------------------------------------------------------------------");
     }
 }
 
