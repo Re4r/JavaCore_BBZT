@@ -8,27 +8,27 @@ public class Exec414 {
     public static void main(String[] args) {
 
         Map<Integer, Cobalt> map = new HashMap<>();
-
-        Random random = new Random();
-
-        for (int i = 0; i < 10; i++) {
-            map.put(random.nextInt(100)
-                    , new Cobalt(random.nextInt(100)
-                    , random.nextInt(100)
-                    , random.nextDouble(100)));
-        }
-
+        mapFiller(map, 10);
         showMap(map);
 
 
 
     }
 
+    static void mapFiller(Map<Integer, Cobalt> map, Integer quantity) {
+        Random random = new Random();
+        for (int i = 0; i < quantity; i++) {
+            map.put(random.nextInt(100)
+                    , new Cobalt(random.nextInt(100)
+                            , random.nextInt(100)
+                            , random.nextDouble(100)));
+        }
+    }
     static <K, V> void showMap(Map<K, V> map) {
         for (Map.Entry<K, V> entry : map.entrySet()) {
             System.out.println("key: " + entry.getKey() + " value: " + entry.getValue());
-            System.out.println("------------------------------------------------------");
         }
+        System.out.println("---------------------------------------------------------------------");
     }
 }
 
