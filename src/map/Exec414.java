@@ -1,8 +1,34 @@
 package map;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 public class Exec414 {
     public static void main(String[] args) {
 
+        Map<Integer, Cobalt> map = new HashMap<>();
+
+        Random random = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            map.put(random.nextInt(100)
+                    , new Cobalt(random.nextInt(100)
+                    , random.nextInt(100)
+                    , random.nextDouble(100)));
+        }
+
+        showMap(map);
+
+
+
+    }
+
+    static <K, V> void showMap(Map<K, V> map) {
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            System.out.println("key: " + entry.getKey() + " value: " + entry.getValue());
+            System.out.println("------------------------------------------------------");
+        }
     }
 }
 
@@ -31,10 +57,10 @@ class Cobalt {
 
     @Override
     public String toString() {
-        return "Cobalt - " +
+        return "Cobalt = " + '(' +
                 "id: " + id +
                 ", source: " + source +
-                ", code: " + code;
+                ", code: " + code + ')';
     }
 
     @Override
