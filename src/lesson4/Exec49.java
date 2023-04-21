@@ -2,10 +2,7 @@ package lesson4;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Exec49 {
     public static void main(String[] args) {
@@ -45,6 +42,7 @@ public class Exec49 {
         System.out.println("-----------------------------------------------");
 
         Collections.sort(employeeList);
+
         show(employeeList);
         System.out.println("-----------------------------------------------");
 
@@ -58,7 +56,52 @@ public class Exec49 {
         }
         System.out.println(index);
         System.out.println(employeeList.get(index));
+        System.out.println("-----------------------------------------------");
+
+        Collections.reverse(employeeList);
+
+        show(employeeList);
+        System.out.println("-----------------------------------------------");
+
+        Collections.shuffle(employeeList, new Random());
+
+        show(employeeList);
+        System.out.println("-----------------------------------------------");
+
+        Comparator<Employee> idComparator = (o1, o2) -> Integer.compare(o1.getId(), o2.getId());
+        Comparator<Employee> nameComparator = (o1, o2) -> o1.getName().compareTo(o2.getName());
+        Comparator<Employee> salaryComparator = new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                return Integer.compare(o1.getSalary(), o2.getSalary());
+            }
+        };
+
+        Collections.sort(employeeList, idComparator);
+
+        show(employeeList);
+        System.out.println("-----------------------------------------------");
+
+        employeeList.sort(nameComparator);
+
+        show(employeeList);
+        System.out.println("-----------------------------------------------");
+
+        employeeList.sort(salaryComparator);
+
+        show(employeeList);
+        System.out.println("-----------------------------------------------");
+
+
+
+
+
+
+
+
     }
+
+
 
     public static <T> void show(List<T> list) {
         for (T e : list) {
@@ -76,6 +119,18 @@ class Employee implements Comparable<Employee> {
         this.id = id;
         this.name = name;
         this.salary = salary;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSalary() {
+        return salary;
     }
 
     @Override
