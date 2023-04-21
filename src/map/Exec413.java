@@ -13,9 +13,22 @@ public class Exec413 {
             map.put(new Random().nextInt(100), Double.toString(new Random().nextDouble(100)));
         }
 
-        for (Map.Entry<Integer, String> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + ":" + entry.getValue());
+        showMap(map);
+
+        for (int i = 0; i < 10; i++) {
+            map.putIfAbsent(new Random().nextInt(100), Double.toString(new Random().nextDouble(100)));
         }
 
+        showMap(map);
+
+    }
+
+    static <K, V> void showMap(Map<K, V> map) {
+        int counter = 0;
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            counter++;
+            System.out.println(counter + " / " + entry.getKey() + " : " + entry.getValue());
+        }
+        System.out.println("-------------------------------------------------------------");
     }
 }
