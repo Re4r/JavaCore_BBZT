@@ -1,5 +1,7 @@
 package lesson4;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,18 +42,23 @@ public class Exec49 {
         }
 
         show(employeeList);
+        System.out.println("-----------------------------------------------");
+
+        Collections.sort(employeeList);
+        show(employeeList);
+        System.out.println("-----------------------------------------------");
 
 
     }
 
-    public static void show(List<Employee> list) {
-        for (Employee e : list) {
+    public static <T> void show(List<T> list) {
+        for (T e : list) {
             System.out.println(e);
         }
     }
 }
 
-class Employee {
+class Employee implements Comparable<Employee> {
     private int id;
     private String name;
     private int salary;
@@ -65,8 +72,19 @@ class Employee {
     @Override
     public String toString() {
         return "Employee > " +
-                "id: " + id +
-                ", name: '" + name + '\'' +
-                ", salary: " + salary;
+                "Id: " + id +
+                ", Name: '" + name + '\'' +
+                ", Salary: " + salary;
+    }
+
+    @Override
+    public int compareTo(@NotNull Employee o) {
+        int result = Integer.compare(this.id, o.id);
+        if (result == 0) {
+            result = this.name.compareTo(o.name);
+        } else if (result == 0) {
+            result = Integer.compare(this.salary, o.salary);
+        }
+        return result;
     }
 }
