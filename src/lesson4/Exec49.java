@@ -92,15 +92,7 @@ public class Exec49 {
         show(employeeList);
         System.out.println("-----------------------------------------------");
 
-
-
-
-
-
-
-
     }
-
 
 
     public static <T> void show(List<T> list) {
