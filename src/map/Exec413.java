@@ -1,6 +1,7 @@
 package map;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 
@@ -21,6 +22,8 @@ public class Exec413 {
 
         showMap(map);
 
+
+
     }
 
     static <K, V> void showMap(Map<K, V> map) {
@@ -29,6 +32,8 @@ public class Exec413 {
             counter++;
             System.out.println(counter + " / " + entry.getKey() + " : " + entry.getValue());
         }
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("size: " + map.size());
         System.out.println("-------------------------------------------------------------");
     }
 }
