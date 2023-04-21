@@ -8,12 +8,11 @@ public class Exec414 {
     public static void main(String[] args) {
 
         Map<Integer, Cobalt> map = new HashMap<>();
+        Map<Integer, Cobalt> map2 = new HashMap<>();
+
         mapFiller(map, 10);
         showMap(map);
         showHashCode(map);
-
-
-
     }
 
     static void mapFiller(Map<Integer, Cobalt> map, Integer quantity) {
