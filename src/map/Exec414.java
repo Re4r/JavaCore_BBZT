@@ -11,8 +11,11 @@ public class Exec414 {
         Map<Integer, Cobalt> map2 = new HashMap<>();
 
         mapFiller(map, 10);
+//        showMap(map);
+//        showHashCode(map);
+        mapFiller(map2, 10);
+        map.putAll(map2);
         showMap(map);
-        showHashCode(map);
     }
 
     static void mapFiller(Map<Integer, Cobalt> map, Integer quantity) {
