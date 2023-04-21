@@ -49,6 +49,15 @@ public class Exec49 {
         System.out.println("-----------------------------------------------");
 
 
+        int index = Integer.MIN_VALUE;
+        while (index < 0) {
+            index = Collections.binarySearch(employeeList,
+                    new Employee(random1.nextInt(100),
+                            Integer.toString(random1.nextInt(100000)),
+                            random1.nextInt(10000)));
+        }
+        System.out.println(index);
+        System.out.println(employeeList.get(index));
     }
 
     public static <T> void show(List<T> list) {
