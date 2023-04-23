@@ -1,8 +1,6 @@
 package map;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Exec414 {
     public static void main(String[] args) {
@@ -16,6 +14,11 @@ public class Exec414 {
         mapFiller(map2, 10);
         map.putAll(map2);
         showMap(map);
+
+        Integer[] keys = map.keySet().toArray(new Integer[0]);
+        System.out.println(Arrays.toString(keys));
+        Arrays.sort(keys);
+        System.out.println(Arrays.toString(keys));
     }
 
     static void mapFiller(Map<Integer, Cobalt> map, Integer quantity) {
