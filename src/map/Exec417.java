@@ -16,6 +16,19 @@ public class Exec417 {
         for (Map.Entry<Integer, Double> entry : treeMap.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
+        System.out.println("----------------------------------------------------------------");
+
+        Map<? extends Integer, ? extends Double> map = treeMap.descendingMap();
+
+        for (Map.Entry<? extends Integer, ? extends Double> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+
+
+
+
+
 
     }
 }
