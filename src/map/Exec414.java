@@ -5,8 +5,8 @@ import java.util.*;
 public class Exec414 {
     public static void main(String[] args) {
 
-        Map<Integer, Cobalt> map = new HashMap<>();
-        Map<Integer, Cobalt> map2 = new HashMap<>();
+        Map<Integer, Cobalt> map = new HashMap<>(16, 0.75f);
+        Map<Integer, Cobalt> map2 = new HashMap<>(16, 0.75f);
 
         mapFiller(map, 10);
 //        showMap(map);
@@ -49,10 +49,10 @@ public class Exec414 {
     }
 }
 
-class Cobalt {
-    private int id;
-    private int source;
-    private double code;
+final class Cobalt {
+    private final int id;
+    private final int source;
+    private final double code;
 
     public Cobalt(int id, int source, double code) {
         this.id = id;
