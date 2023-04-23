@@ -37,7 +37,7 @@ public class Exec4172 {
 
         artefactDoubleTreeMap.putAll(treeMap);
 
-        for (Map.Entry<Artefact, Double> entry : treeMap1.entrySet()) {
+        for (Map.Entry<Artefact, Double> entry : artefactDoubleTreeMap.entrySet()) {
             System.out.println("key: " + entry.getKey() + " / " + "value: "  + entry.getValue());
         }
         System.out.println("-----------------------------------------------------------------------");
