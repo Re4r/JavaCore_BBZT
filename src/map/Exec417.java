@@ -23,6 +23,31 @@ public class Exec417 {
         for (Map.Entry<? extends Integer, ? extends Double> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
+        System.out.println("----------------------------------------------------------------");
+
+        Map<Integer, Double> map1 = treeMap.tailMap(150);
+
+        for (Map.Entry<Integer, Double> entry : map1.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+        System.out.println("----------------------------------------------------------------");
+
+        Map<Integer, Double> map2 = treeMap.headMap(150);
+
+        for (Map.Entry<Integer, Double> entry : map2.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+        System.out.println("----------------------------------------------------------------");
+
+        System.out.println(treeMap.firstEntry());
+        System.out.println(treeMap.lastEntry());
+        System.out.println(treeMap.firstKey());
+        System.out.println(treeMap.lastKey());
+        System.out.println("----------------------------------------------------------------");
+
+
+
+
 
 
 
