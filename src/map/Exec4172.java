@@ -11,12 +11,7 @@ public class Exec4172 {
     public static void main(String[] args) {
 
         TreeMap<Artefact, Double> treeMap = new TreeMap<>();
-        TreeMap<Artefact, Double> artefactDoubleTreeMap = new TreeMap<>(new Comparator<Artefact>() {
-            @Override
-            public int compare(Artefact o1, Artefact o2) {
-                return Double.compare(o1.getCode(), o2.getCode());
-            }
-        });
+        TreeMap<Artefact, Double> artefactDoubleTreeMap = new TreeMap<>(Comparator.comparingDouble(Artefact::code));
 
         for (int i = 0; i < 10; i++) {
             treeMap.put(new Artefact(new Random().nextInt(100), new Random().nextDouble(100)),
@@ -42,45 +37,26 @@ public class Exec4172 {
         }
         System.out.println("-----------------------------------------------------------------------");
 
-
-
-
     }
 }
 
-final class Artefact implements Comparable<Artefact> {
-
-    private final int id;
-    private final double code;
-
-    public Artefact(int id, double code) {
-        this.id = id;
-        this.code = code;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public double getCode() {
-        return code;
-    }
+record Artefact(int id, double code) implements Comparable<Artefact> {
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Artefact artefact)) return false;
 
-        if (getId() != artefact.getId()) return false;
-        return Double.compare(artefact.getCode(), getCode()) == 0;
+        if (id() != artefact.id()) return false;
+        return Double.compare(artefact.code(), code()) == 0;
     }
 
     @Override
     public int hashCode() {
         int result;
         long temp;
-        result = getId();
-        temp = Double.doubleToLongBits(getCode());
+        result = id();
+        temp = Double.doubleToLongBits(code());
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
