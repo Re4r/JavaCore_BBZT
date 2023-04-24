@@ -2,7 +2,6 @@ package set;
 
 import java.util.Comparator;
 import java.util.Random;
-import java.util.Set;
 import java.util.TreeSet;
 
 public class Exec421 {
@@ -32,21 +31,31 @@ public class Exec421 {
             }
         };
 
-        Set<Unreal> unrealSet = new TreeSet<>(idComparator);
+        TreeSet<Unreal> unrealSet = new TreeSet<>(idComparator);
 
         for (int i = 0; i < 10; i++) {
-            unrealSet.add(new Unreal(new Random().nextInt(100), new Random().nextDouble(100)));
+            unrealSet.add(new Unreal(new Random().nextInt(10), new Random().nextDouble(10)));
         }
 
-        Set<Unreal> unrealSet1 = new TreeSet<>(codeComparator);
+        TreeSet<Unreal> unrealSet1 = new TreeSet<>(codeComparator);
 
         for (int i = 0; i < 10; i++) {
-            unrealSet1.add(new Unreal(new Random().nextInt(100), new Random().nextDouble(100)));
+            unrealSet1.add(new Unreal(new Random().nextInt(10), new Random().nextDouble(10)));
         }
 
         unrealSet.forEach(System.out::println);
         System.out.println("----------------------------------------------------------------------------------------");
         unrealSet1.forEach(System.out::println);
+        System.out.println("----------------------------------------------------------------------------------------");
+
+        Unreal unreal = new Unreal(new Random().nextInt(10), new Random().nextDouble(10));
+        System.out.println(unreal);
+        System.out.println(unrealSet.headSet(unreal));
+//        System.out.println(unrealSet1.headSet(unreal));
+        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.println(unreal);
+        System.out.println(unrealSet.tailSet(unreal));
+//        System.out.println(unrealSet1.tailSet(unreal));
         System.out.println("----------------------------------------------------------------------------------------");
 
 
@@ -79,5 +88,22 @@ class Unreal {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Unreal unreal)) return false;
 
+        if (getId() != unreal.getId()) return false;
+        return Double.compare(unreal.getCode(), getCode()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = getId();
+        temp = Double.doubleToLongBits(getCode());
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }
