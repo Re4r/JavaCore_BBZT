@@ -10,9 +10,14 @@ public class Exec420 {
 
         Set<Integer> set = new HashSet<>();
 
+        HashSet<Integer> integers = new HashSet<>();
+        HashSet<Integer> union = new HashSet<>();
+
         for (int i = 0; i < 100; i++) {
             set.add(new Random().nextInt(100));
         }
+
+        integers.addAll(set);
 
         int counter = 0;
         for (var o : set) {
@@ -34,5 +39,27 @@ public class Exec420 {
             System.out.println(counter1 + " : " + o);
         }
         System.out.println("----------------------------");
+
+        System.out.println(set.size());
+        System.out.println("----------------------------");
+
+        for (Integer i : integers) {
+            System.out.println(i);
+        }
+        System.out.println("----------------------------");
+
+        union.addAll(set);
+        union.addAll(integers);
+
+        for (Integer i : union) {
+            System.out.println(i);
+        }
+        System.out.println("----------------------------");
+
+
+
+
+
+
     }
 }
