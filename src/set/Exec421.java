@@ -8,8 +8,8 @@ public class Exec421 {
 
         TreeSet<Integer> integerTreeSet = new TreeSet<>();
 
-        for (int i = 0; i < 30; i++) {
-            integerTreeSet.add(new Random().nextInt(30));
+        for (int i = 0; i < 25; i++) {
+            integerTreeSet.add(new Random().nextInt(50));
         }
 
         System.out.println("----------------------------------------------------------------------------------------");
