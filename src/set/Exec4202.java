@@ -9,6 +9,7 @@ public class Exec4202 {
         HashSet<Integer> integerHashSet1 = new HashSet<>();
         HashSet<Integer> integerHashSet2 = new HashSet<>();
 
+
         for (int i = 0; i < 20; i++) {
             integerHashSet1.add(new Random().nextInt(100));
             integerHashSet2.add(new Random().nextInt(100));
@@ -19,6 +20,12 @@ public class Exec4202 {
         System.out.println("----------------------------------------------------------------------------------------");
         System.out.println(integerHashSet2);
         System.out.println("----------------------------------------------------------------------------------------");
+
+        HashSet<Integer> union = new HashSet<>(integerHashSet1);
+        union.addAll(integerHashSet2);
+        System.out.println(union);
+        System.out.println("----------------------------------------------------------------------------------------");
+
 
     }
 }
