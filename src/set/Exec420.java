@@ -56,6 +56,8 @@ public class Exec420 {
         }
         System.out.println("----------------------------");
 
+        union.forEach(System.out::println);
+
 
 
 
