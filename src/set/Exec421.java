@@ -18,12 +18,6 @@ public class Exec421 {
         System.out.println(integerTreeSet);
         System.out.println("----------------------------------------------------------------------------------------");
 
-        Set<Unreal> unrealSet = new TreeSet<>();
-
-        for (int i = 0; i < 10; i++) {
-            unrealSet.add(new Unreal(new Random().nextInt(100), new Random().nextDouble(100)));
-        }
-
         Comparator<Unreal> idComparator = new Comparator<Unreal>() {
             @Override
             public int compare(Unreal o1, Unreal o2) {
@@ -38,7 +32,22 @@ public class Exec421 {
             }
         };
 
+        Set<Unreal> unrealSet = new TreeSet<>(idComparator);
+
+        for (int i = 0; i < 10; i++) {
+            unrealSet.add(new Unreal(new Random().nextInt(100), new Random().nextDouble(100)));
+        }
+
+        Set<Unreal> unrealSet1 = new TreeSet<>(codeComparator);
+
+        for (int i = 0; i < 10; i++) {
+            unrealSet1.add(new Unreal(new Random().nextInt(100), new Random().nextDouble(100)));
+        }
+
         unrealSet.forEach(System.out::println);
+        System.out.println("----------------------------------------------------------------------------------------");
+        unrealSet1.forEach(System.out::println);
+        System.out.println("----------------------------------------------------------------------------------------");
 
 
 
