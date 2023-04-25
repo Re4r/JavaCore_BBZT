@@ -15,17 +15,35 @@ public class Exec424 {
         }
 
         System.out.println(queue1);
+        System.out.println("-------------------------------");
+
+
+        PriorityQueue<Code> codePriorityQueue = new PriorityQueue<>();
+
+        for (int i = 0; i < 10; i++) {
+            codePriorityQueue.offer(new Code(new Random().nextDouble(100)));
+        }
+
+        for (Code code : codePriorityQueue) {
+            System.out.println(code);
+        }
+        System.out.println("-------------------------------");
+
+        for (int i = 0; i < codePriorityQueue.size(); i++) {
+            System.out.println(codePriorityQueue.peek());
+
+        }
     }
 }
 
-class Code implements Comparable<Code> {
-    private double id;
+final class Code implements Comparable<Code> {
+    private final int id;
 
-    public Code(double id) {
+    public Code(int id) {
         this.id = id;
     }
 
-    public double getId() {
+    public int getId() {
         return id;
     }
 
@@ -40,17 +58,17 @@ class Code implements Comparable<Code> {
         if (this == o) return true;
         if (!(o instanceof Code code)) return false;
 
-        return Double.compare(code.getId(), getId()) == 0;
+        return getId() == code.getId();
     }
 
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(getId());
-        return (int) (temp ^ (temp >>> 32));
+        return getId();
     }
+
 
     @Override
     public int compareTo(@NotNull Code o) {
-        return 0;
+        return Integer.compare(this.id, o.id);
     }
 }
