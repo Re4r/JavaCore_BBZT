@@ -2,6 +2,7 @@ package queue;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.Random;
 
@@ -28,9 +29,12 @@ public class Exec424 {
         }
         System.out.println("-------------------------------");
 
-        for (int i = 0; i < codePriorityQueue.size(); i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println(codePriorityQueue.peek());
+            codePriorityQueue.poll();
         }
+
+
     }
 }
 
