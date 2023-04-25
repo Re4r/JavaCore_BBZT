@@ -8,14 +8,18 @@ public class Exec423 {
 
         Queue<String> queue = new LinkedList<>();
 
-        queue.add("AAA");
-        queue.add("CCC");
-        queue.add("EEE");
-        queue.add("DDD");
-        queue.add("BBB");
-        queue.add("FFF");
+        queue.offer("AAA");
+        queue.offer("CCC");
+        queue.offer("EEE");
+        queue.offer("DDD");
+        queue.offer("BBB");
+        queue.offer("FFF");
 
         System.out.println(queue);
+        String element = queue.poll();
+        System.out.println(element);
+        System.out.println(queue);
+        System.out.println(queue.peek());
 
     }
 }
