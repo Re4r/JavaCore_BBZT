@@ -7,5 +7,6 @@ public class TestCar {
         Car car = new Car("Red", 4, engine);
 
         System.out.println(car);
+        System.out.println();
     }
 }

@@ -22,9 +22,11 @@ public class Car {
 
     public static class Engine {
         private int horsePower;
+        public static int countOfEngines;
 
         public Engine(int horsePower) {
             this.horsePower = horsePower;
+            countOfEngines++;
         }
 
         @Override
