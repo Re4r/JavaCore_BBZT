@@ -1,6 +1,12 @@
 package nested_classes;
 
 public class Exec55 {
+    private int d;
+
+    {
+        d = 10;
+    }
+
     public static void main(String[] args) {
 
         MathOperation mathOperation1 = new MathOperation() {
@@ -13,7 +19,8 @@ public class Exec55 {
         MathOperation mathOperation2 = new MathOperation() {
             @Override
             public int doOperation(int x, int y) {
-                return (int) Math.pow(x, y);
+                Exec55 exec55 = new Exec55();
+                return (int) (Math.pow(x, y) + Math.pow(x + y, exec55.d));
             }
         };
 
