@@ -12,7 +12,8 @@ public class CarInner {
     @Override
     public String toString() {
         return "CarInner: " +
-                "speed: " + speed;
+                "speed: " + speed +
+                ", engine: " + engine;
     }
 
     public class Engine {
