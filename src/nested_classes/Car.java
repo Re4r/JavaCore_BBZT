@@ -20,7 +20,7 @@ public class Car {
                 '}';
     }
 
-    private static class Engine {
+    public static class Engine {
         private int horsePower;
 
         public Engine(int horsePower) {
