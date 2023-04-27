@@ -1,6 +1,7 @@
 package lambda;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 public class Exec65 {
@@ -20,6 +21,17 @@ public class Exec65 {
         students.add(st4);
         students.add(st5);
 
+        double avgAge = avgOfSmth(students, student -> (double) student.getAge());
+        System.out.println(avgAge);
+        double avgCourse = avgOfSmth(students, student -> (double) student.getCourse());
+        System.out.println(avgCourse);
+    }
 
+    private static double avgOfSmth(List<Student> list, Function<Student, Double> function) {
+        double result = 0;
+        for (var s : list) {
+            result += function.apply(s);
+        }
+        return result / list.size();
     }
 }
