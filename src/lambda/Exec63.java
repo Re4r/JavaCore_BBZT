@@ -1,6 +1,7 @@
 package lambda;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Exec63 {
     public static void main(String[] args) {
@@ -20,6 +21,27 @@ public class Exec63 {
         students.add(st5);
 
         students.forEach(System.out::println);
+        System.out.println("_____________________________________________________");
 
+        Predicate<Student> predicate = new Predicate<Student>() {
+            @Override
+            public boolean test(Student student) {
+                return student.getAge() > 20 && student.getAge() < 50;
+            }
+        };
+
+        checkStudents(students, predicate);
+
+
+
+    }
+
+    static void checkStudents(ArrayList<Student> students, Predicate<Student> pr) {
+        for (var st : students) {
+            if (pr.test(st)) {
+                System.out.println(st);
+            }
+        }
+        System.out.println("_____________________________________________________");
     }
 }
