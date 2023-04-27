@@ -29,14 +29,9 @@ public class Exec65 {
         System.out.println(avgGrade);
 
 
-        Function<Student, Double> function = new Function<Student, Double>() {
-            @Override
-            public Double apply(Student student) {
-                return student.setAvgGrade(student.getAvgGrade() + 100);
-            }
-        };
+        Function<Student, Double> function = student -> student.setAvgGrade(student.getAvgGrade() + 100);
 
-        students.forEach(student -> function.apply(student));
+        students.forEach(function::apply);
         System.out.println("--------------------------------------------------------------------------------------");
         students.forEach(System.out::println);
     }
