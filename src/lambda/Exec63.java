@@ -32,6 +32,8 @@ public class Exec63 {
 
         checkStudents(students, predicate);
 
+        checkStudents(students, student -> student.getAvgGrade() < 8);
+
 
 
     }
