@@ -1,10 +1,20 @@
 package lambda;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.function.Supplier;
 
 public class Exec64 {
     public static void main(String[] args) {
+
+        ArrayList<Car> cars = createCars(new Supplier<Car>() {
+            @Override
+            public Car get() {
+                return new Car(new Random().nextInt(1000),
+                        new Random().nextInt(1000),
+                        new Random().nextDouble(100));
+            }
+        });
 
     }
 
