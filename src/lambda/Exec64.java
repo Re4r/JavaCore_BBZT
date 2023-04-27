@@ -1,10 +1,19 @@
 package lambda;
 
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class Exec64 {
     public static void main(String[] args) {
 
+    }
+
+    static <T> ArrayList<T> createCars(Supplier<T> supplier) {
+        ArrayList<T> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(supplier.get());
+        }
+        return list;
     }
 }
 
