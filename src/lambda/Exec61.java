@@ -41,7 +41,7 @@ public class Exec61 {
 //        });
         System.out.println("-------------------------------------------------------");
 
-        testStudents(students, st -> st.getCourse() > 2);
+        testStudents(students, st -> st.getCourse() > 2 && st.getAvgGrade() > 4.0 && st.getSex() == 'f');
 
     }
 
