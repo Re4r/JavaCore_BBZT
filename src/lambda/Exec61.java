@@ -43,6 +43,9 @@ public class Exec61 {
 
         testStudents(students, st -> st.getCourse() > 2 && st.getAvgGrade() > 4.0 && st.getSex() == 'f');
 
+        StudentsChecks studentsChecks = st -> st.getAge() > 30;
+        testStudents(students, studentsChecks);
+
     }
 
 //    static void printStudentsOverGrade(ArrayList<Student> students, double grade) {
