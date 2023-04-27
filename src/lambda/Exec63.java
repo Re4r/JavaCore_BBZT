@@ -20,19 +20,21 @@ public class Exec63 {
         students.add(st4);
         students.add(st5);
 
-        students.forEach(System.out::println);
+//        students.forEach(System.out::println);
         System.out.println("_____________________________________________________");
 
         Predicate<Student> predicate = new Predicate<Student>() {
             @Override
             public boolean test(Student student) {
-                return student.getAge() > 20 && student.getAge() < 50;
+                return student.getAge() > 40;
             }
         };
 
-        checkStudents(students, predicate);
+        Predicate<Student> predicate1 = student -> student.getSex() == 'm';
 
-        checkStudents(students, student -> student.getAvgGrade() < 8);
+        checkStudents(students, predicate.negate());
+
+//        checkStudents(students, student -> student.getAvgGrade() < 8);
 
 
 
