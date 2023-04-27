@@ -44,7 +44,16 @@ public class Exec61 {
         testStudents(students, st -> st.getCourse() > 2 && st.getAvgGrade() > 4.0 && st.getSex() == 'f');
 
         StudentsChecks studentsChecks = st -> st.getAge() > 30;
+
+        StudentsChecks checks = new StudentsChecks() {
+            @Override
+            public boolean check(Student st) {
+                return st.getAge() < 50;
+            }
+        };
+
         testStudents(students, studentsChecks);
+        testStudents(students, checks);
 
     }
 
