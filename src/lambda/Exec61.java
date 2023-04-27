@@ -23,9 +23,18 @@ public class Exec61 {
         students.add(st4);
         students.add(st5);
 
-        System.out.println("-------------------------------------------------------");
-        students.forEach(System.out::println);
-        System.out.println("-------------------------------------------------------");
+//        System.out.println("-------------------------------------------------------");
+//        students.forEach(System.out::println);
+//        System.out.println("-------------------------------------------------------");
+
+//        printStudentsUnderAge(students, 30);
+//        System.out.println("-------------------------------------------------------");
+//        printStudentsOverGrade(students, 5.0);
+//        System.out.println("-------------------------------------------------------");
+//        printStudentsMixCondition(students, 25, 9, 'f');
+//        System.out.println("-------------------------------------------------------");
+
+
     }
 
     static void printStudentsOverGrade(ArrayList<Student> students, double grade) {
@@ -52,6 +61,14 @@ public class Exec61 {
         }
     }
 
+    static void testStudents(ArrayList<Student> students, StudentChecks ch) {
+        for (Student st : students) {
+            if (ch.check(st)) {
+                System.out.println(st);
+
+            }
+        }
+    }
 }
 
 class Student {
@@ -125,4 +142,8 @@ class Student {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+}
+
+interface StudentChecks {
+    boolean check(Student st);
 }
