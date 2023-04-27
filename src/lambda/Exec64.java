@@ -3,6 +3,7 @@ package lambda;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.function.Supplier;
+import java.util.function.Consumer;
 
 public class Exec64 {
     public static void main(String[] args) {
@@ -17,6 +18,20 @@ public class Exec64 {
         });
 
         cars.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
+
+        changeCars(cars, new Consumer<Car>() {
+            @Override
+            public void accept(Car car) {
+                car.setMaxSpeed(new Random().nextInt(100));
+                car.setHorsePower(new Random().nextInt(100));
+                car.setAcceleration(new Random().nextDouble(10));
+            }
+        });
+
+        cars.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
+
 
     }
 
@@ -26,6 +41,13 @@ public class Exec64 {
             list.add(supplier.get());
         }
         return list;
+    }
+
+    static <T> void changeCars(ArrayList<T> list, Consumer<T> consumer) {
+        for (var t : list) {
+            consumer.accept(t);
+
+        }
     }
 }
 
@@ -50,6 +72,18 @@ class Car {
 
     public double getAcceleration() {
         return acceleration;
+    }
+
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    public void setHorsePower(int horsePower) {
+        this.horsePower = horsePower;
+    }
+
+    public void setAcceleration(double acceleration) {
+        this.acceleration = acceleration;
     }
 
     @Override
