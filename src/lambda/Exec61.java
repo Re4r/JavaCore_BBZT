@@ -1,6 +1,7 @@
 package lambda;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Exec61 {
     public static void main(String[] args) {
@@ -52,8 +53,25 @@ public class Exec61 {
             }
         };
 
-        testStudents(students, studentsChecks);
-        testStudents(students, checks);
+//        testStudents(students, studentsChecks);
+//        testStudents(students, checks);
+//        System.out.println("-------------------------------------------------------");
+
+        Comparator<Student> comparator = new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return Integer.compare(o1.getAge(), o2.getAge());
+            }
+        };
+
+        Comparator<Student> studentComparator = (o1, o2) -> Double.compare(o1.getAvgGrade(), o2.getAvgGrade());
+
+        System.out.println("-------------------------------------------------------");
+        students.sort(comparator);
+        students.forEach(System.out::println);
+        System.out.println("-------------------------------------------------------");
+        students.sort(studentComparator);
+        students.forEach(System.out::println);
 
     }
 
