@@ -1,9 +1,6 @@
 package lambda;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.List.*;
 
 public class Exec61 {
     public static void main(String[] args) {
@@ -48,29 +45,29 @@ public class Exec61 {
 
     }
 
-    static void printStudentsOverGrade(ArrayList<Student> students, double grade) {
-        for (Student st : students) {
-            if (st.getAvgGrade() > grade) {
-                System.out.println(st);
-            }
-        }
-    }
-
-    static void printStudentsUnderAge(ArrayList<Student> students, int age) {
-        for (Student st : students) {
-            if (st.getAge() < age) {
-                System.out.println(st);
-            }
-        }
-    }
-
-    static void printStudentsMixCondition(ArrayList<Student> students, int age, double grade, char sex) {
-        for (Student st : students) {
-            if (st.getAge() > age && st.getAvgGrade() < grade && st.getSex() == sex) {
-                System.out.println(st);
-            }
-        }
-    }
+//    static void printStudentsOverGrade(ArrayList<Student> students, double grade) {
+//        for (Student st : students) {
+//            if (st.getAvgGrade() > grade) {
+//                System.out.println(st);
+//            }
+//        }
+//    }
+//
+//    static void printStudentsUnderAge(ArrayList<Student> students, int age) {
+//        for (Student st : students) {
+//            if (st.getAge() < age) {
+//                System.out.println(st);
+//            }
+//        }
+//    }
+//
+//    static void printStudentsMixCondition(ArrayList<Student> students, int age, double grade, char sex) {
+//        for (Student st : students) {
+//            if (st.getAge() > age && st.getAvgGrade() < grade && st.getSex() == sex) {
+//                System.out.println(st);
+//            }
+//        }
+//    }
 
     static void testStudents(ArrayList<Student> students, StudentsChecks ch) {
         for (Student st : students) {
@@ -155,13 +152,14 @@ class Student {
     }
 }
 
+@FunctionalInterface
 interface StudentsChecks {
     boolean check(Student st);
 }
 
-class CheckOverGrade implements StudentsChecks {
-    @Override
-    public boolean check(Student st) {
-        return st.getAvgGrade() > 5;
-    }
-}
+//class CheckOverGrade implements StudentsChecks {
+//    @Override
+//    public boolean check(Student st) {
+//        return st.getAvgGrade() > 5;
+//    }
+//}
