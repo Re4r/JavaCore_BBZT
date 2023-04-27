@@ -34,18 +34,17 @@ public class Exec61 {
 //        printStudentsMixCondition(students, 25, 9, 'f');
 //        System.out.println("-------------------------------------------------------");
 
-        testStudents(students, new CheckOverGrade());
+//        testStudents(students, new CheckOverGrade());
+//        System.out.println("-------------------------------------------------------");
+//        testStudents(students, new StudentsChecks() {
+//            @Override
+//            public boolean check(Student st) {
+//                return st.getSex() == 'm';
+//            }
+//        });
         System.out.println("-------------------------------------------------------");
-        testStudents(students, new StudentsChecks() {
-            @Override
-            public boolean check(Student st) {
-                return st.getSex() == 'm';
-            }
-        });
-        System.out.println("-------------------------------------------------------");
 
-
-
+        testStudents(students, st -> st.getCourse() > 2);
 
     }
 
@@ -77,9 +76,9 @@ public class Exec61 {
         for (Student st : students) {
             if (ch.check(st)) {
                 System.out.println(st);
-
             }
         }
+        System.out.println("-------------------------------------------------------");
     }
 }
 
