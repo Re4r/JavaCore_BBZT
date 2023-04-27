@@ -2,6 +2,7 @@ package lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
 
 public class Exec65 {
@@ -30,8 +31,10 @@ public class Exec65 {
 
 
         Function<Student, Double> function = student -> student.setAvgGrade(student.getAvgGrade() + 100);
+        Function<Student, Integer> function2 = student -> student.setAge(new Random().nextInt());
 
         students.forEach(function::apply);
+        students.forEach(function2::apply);
         System.out.println("--------------------------------------------------------------------------------------");
         students.forEach(System.out::println);
     }

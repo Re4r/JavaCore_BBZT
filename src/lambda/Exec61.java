@@ -152,8 +152,9 @@ class Student {
         this.sex = sex;
     }
 
-    public void setAge(int age) {
+    public Integer setAge(int age) {
         this.age = age;
+        return 0;
     }
 
     public void setCourse(int course) {
