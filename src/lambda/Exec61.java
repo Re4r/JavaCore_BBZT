@@ -34,6 +34,18 @@ public class Exec61 {
 //        printStudentsMixCondition(students, 25, 9, 'f');
 //        System.out.println("-------------------------------------------------------");
 
+        testStudents(students, new CheckOverGrade());
+        System.out.println("-------------------------------------------------------");
+        testStudents(students, new StudentsChecks() {
+            @Override
+            public boolean check(Student st) {
+                return st.getSex() == 'm';
+            }
+        });
+        System.out.println("-------------------------------------------------------");
+
+
+
 
     }
 
@@ -61,7 +73,7 @@ public class Exec61 {
         }
     }
 
-    static void testStudents(ArrayList<Student> students, StudentChecks ch) {
+    static void testStudents(ArrayList<Student> students, StudentsChecks ch) {
         for (Student st : students) {
             if (ch.check(st)) {
                 System.out.println(st);
@@ -144,6 +156,13 @@ class Student {
     }
 }
 
-interface StudentChecks {
+interface StudentsChecks {
     boolean check(Student st);
+}
+
+class CheckOverGrade implements StudentsChecks {
+    @Override
+    public boolean check(Student st) {
+        return st.getAvgGrade() > 5;
+    }
 }
