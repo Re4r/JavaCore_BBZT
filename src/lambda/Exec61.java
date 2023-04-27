@@ -144,6 +144,27 @@ class Student {
         return avgGrade;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setCourse(int course) {
+        this.course = course;
+    }
+
+    public Double setAvgGrade(double avgGrade) {
+        this.avgGrade = avgGrade;
+        return null;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Student: (");

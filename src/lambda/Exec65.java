@@ -25,6 +25,20 @@ public class Exec65 {
         System.out.println(avgAge);
         double avgCourse = avgOfSmth(students, student -> (double) student.getCourse());
         System.out.println(avgCourse);
+        double avgGrade = avgOfSmth(students, Student::getAvgGrade);
+        System.out.println(avgGrade);
+
+
+        Function<Student, Double> function = new Function<Student, Double>() {
+            @Override
+            public Double apply(Student student) {
+                return student.setAvgGrade(student.getAvgGrade() + 100);
+            }
+        };
+
+        students.forEach(student -> function.apply(student));
+        System.out.println("--------------------------------------------------------------------------------------");
+        students.forEach(System.out::println);
     }
 
     private static double avgOfSmth(List<Student> list, Function<Student, Double> function) {
