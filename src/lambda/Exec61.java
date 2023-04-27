@@ -8,13 +8,14 @@ import static java.util.List.*;
 public class Exec61 {
     public static void main(String[] args) {
 
-        Student st1 = new Student("AAA", 'f', 27, 1, 5.68);
-        Student st2 = new Student("BBB", 'f', 35, 2, 4.69);
+        Student st1 = new Student("AAA", 'f', 27, 1, 9.68);
+        Student st2 = new Student("BBB", 'f', 35, 2, 7.69);
         Student st3 = new Student("CCC", 'm', 54, 3, 3.54);
         Student st4 = new Student("DDD", 'f', 25, 4, 5.12);
         Student st5 = new Student("EEE", 'm', 39, 5, 4.92);
 
         ArrayList<Student> students = new ArrayList<>();
+
 
         students.add(st1);
         students.add(st2);
@@ -25,8 +26,30 @@ public class Exec61 {
         System.out.println("-------------------------------------------------------");
         students.forEach(System.out::println);
         System.out.println("-------------------------------------------------------");
+    }
 
+    static void printStudentsOverGrade(ArrayList<Student> students, double grade) {
+        for (Student st : students) {
+            if (st.getAvgGrade() > grade) {
+                System.out.println(st);
+            }
+        }
+    }
 
+    static void printStudentsUnderAge(ArrayList<Student> students, int age) {
+        for (Student st : students) {
+            if (st.getAge() < age) {
+                System.out.println(st);
+            }
+        }
+    }
+
+    static void printStudentsMixCondition(ArrayList<Student> students, int age, double grade, char sex) {
+        for (Student st : students) {
+            if (st.getAge() > age && st.getAvgGrade() < grade && st.getSex() == sex) {
+                System.out.println(st);
+            }
+        }
     }
 
 }
