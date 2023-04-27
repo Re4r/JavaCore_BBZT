@@ -16,6 +16,8 @@ public class Exec64 {
             }
         });
 
+        cars.forEach(System.out::println);
+
     }
 
     static <T> ArrayList<T> createCars(Supplier<T> supplier) {
@@ -53,9 +55,9 @@ class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "maxSpeed=" + maxSpeed +
-                ", horsePower=" + horsePower +
-                ", acceleration=" + acceleration +
+                "maxSpeed: " + maxSpeed +
+                ", horsePower: " + horsePower +
+                ", acceleration: " + acceleration +
                 '}';
     }
 }
