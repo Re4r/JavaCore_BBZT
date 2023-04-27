@@ -29,7 +29,7 @@ public class Exec64 {
             }
         });
 
-        cars.forEach(System.out::println);
+        cars.forEach(car -> System.out.println(car));
         System.out.println("---------------------------------------------------------------------------------------");
 
 
