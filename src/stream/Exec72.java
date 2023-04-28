@@ -8,16 +8,26 @@ public class Exec72 {
     public static void main(String[] args) {
 
         ArrayList<EmptyBot> emptyBots = emptyBotFactory(10);
-        emptyBots.forEach(System.out::println);
 
+        emptyBots.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
+
+        List<EmptyBot> filteredBots = emptyBots.stream().filter(eb ->
+                eb.getId() > 50 &&
+                        eb.getName().length() > 5 &&
+                eb.getCode() > 200).toList();
+
+        filteredBots.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
 
     }
+
     private static ArrayList<EmptyBot> emptyBotFactory(int quantity) {
         ArrayList<EmptyBot> list = new ArrayList<>();
         for (int i = 0; i < quantity; i++) {
             Random r = new Random();
             list.add(new EmptyBot(r.nextInt(100),
-                    String.valueOf(r.nextLong(10000)),
+                    String.valueOf(r.nextLong(1000000)),
                     r.nextInt(1000)));
         }
         return list;
