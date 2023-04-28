@@ -60,8 +60,10 @@ public class Exec71 {
         System.out.println("----------------------------------------------------------------");
 
         set = set.stream().map(s -> s.toUpperCase()).collect(Collectors.toSet());
+        List<String> strings = set.stream().toList();
 
         System.out.println(set);
+        System.out.println(strings);
         System.out.println("----------------------------------------------------------------");
 
     }
