@@ -3,6 +3,7 @@ package stream;
 import org.jetbrains.annotations.Contract;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Exec71 {
     @Contract(pure = true)
@@ -46,6 +47,7 @@ public class Exec71 {
 //        System.out.println("----------------------------------------------------------------");
 
         Set<String> set = new TreeSet<>();
+
         set.add("opyeretevcgdre");
         set.add("zxcerftyuqasdc");
         set.add("aazewqfsfrfsrv");
@@ -53,6 +55,14 @@ public class Exec71 {
         set.add("utyrhftryfbvcg");
         set.add("qvznxcdgtcyrgt");
         set.add("smgjgdmmvbvpty");
+
+        System.out.println(set);
+        System.out.println("----------------------------------------------------------------");
+
+        set = set.stream().map(s -> s.toUpperCase()).collect(Collectors.toSet());
+
+        System.out.println(set);
+        System.out.println("----------------------------------------------------------------");
 
     }
 }
