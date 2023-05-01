@@ -48,12 +48,7 @@ public class Exec75 {
         sortedNut.forEach(System.out::println);
         System.out.println("---------------------------------------");
 
-        Function<Integer, String> function = new Function<Integer, String>() {
-            @Override
-            public String apply(Integer integer) {
-                return String.valueOf(integer).concat("AAA");
-            }
-        };
+        Function<Integer, String> function = integer -> String.valueOf(integer).concat("AAA");
 
         List<String> strings = sortedNut.stream().map(nut -> function.apply(nut.getId())).toList();
 
