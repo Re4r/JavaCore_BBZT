@@ -50,11 +50,14 @@ public class Exec74 {
         list2.add("EEE");
         list2.add("FFF");
 
-        String s1 = list2.stream().reduce(String::concat).get();
+        String s1 = list2.stream().reduce(Exec74::concatination).get();
         System.out.println(s1);
         System.out.println("-------------------------------------------------------------");
 
 
 
+    }
+    static String concatination(String s1, String s2) {
+        return s1 + s2;
     }
 }
