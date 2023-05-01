@@ -2,6 +2,7 @@ package stream;
 
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class Exec75 {
@@ -46,6 +47,24 @@ public class Exec75 {
 
         sortedNut.forEach(System.out::println);
         System.out.println("---------------------------------------");
+
+        Function<Integer, String> function = new Function<Integer, String>() {
+            @Override
+            public String apply(Integer integer) {
+                return String.valueOf(integer).concat("AAA");
+            }
+        };
+
+        List<String> strings = sortedNut.stream().map(nut -> function.apply(nut.getId())).toList();
+
+        strings.forEach(System.out::println);
+        System.out.println("---------------------------------------");
+
+        strings = strings.stream().sorted().toList();
+
+        strings.forEach(System.out::println);
+        System.out.println("---------------------------------------");
+
 
     }
 }
