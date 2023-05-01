@@ -63,6 +63,8 @@ public class Exec75 {
         String s = strings.stream().reduce(String::concat).get();
         System.out.println(s);
 
+        System.out.println(s.toLowerCase());
+
 
     }
 }
