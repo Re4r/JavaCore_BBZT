@@ -1,9 +1,6 @@
 package stream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -25,19 +22,9 @@ public class Exec75 {
 
         List<Nut> nutList = new ArrayList<>();
 
-        Supplier<Nut> nutSupplier = new Supplier<Nut>() {
-            @Override
-            public Nut get() {
-                return new Nut(new Random().nextInt(1000));
-            }
-        };
+        Supplier<Nut> nutSupplier = () -> new Nut(new Random().nextInt(1000));
 
-        Consumer<Nut> nutConsumer = new Consumer<Nut>() {
-            @Override
-            public void accept(Nut nut) {
-                nut.setId(nut.getId() + 1000);
-            }
-        };
+        Consumer<Nut> nutConsumer = nut -> nut.setId(nut.getId() + 1000);
 
         for (int i = 0; i < 10; i++) {
             nutList.add(nutSupplier.get());
@@ -51,6 +38,15 @@ public class Exec75 {
         }
 
         nutList.forEach(System.out::println);
+        System.out.println("---------------------------------------");
+
+        List<Nut> sortedNut = new ArrayList<>();
+
+        Comparator<Nut> nutComparator = (o1, o2) -> Integer.compare(o1.getId(), o2.getId());
+
+        sortedNut = nutList.stream().sorted(nutComparator).toList();
+
+        sortedNut.forEach(System.out::println);
         System.out.println("---------------------------------------");
 
     }
