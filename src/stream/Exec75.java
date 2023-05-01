@@ -13,6 +13,11 @@ public class Exec75 {
         }
 
         System.out.println(Arrays.toString(array));
+        System.out.println("---------------------------------------");
+
+        array = Arrays.stream(array).sorted().toArray();
+        System.out.println(Arrays.toString(array));
+        System.out.println("---------------------------------------");
 
     }
 }
