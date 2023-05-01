@@ -12,5 +12,16 @@ public class Exec74 {
 
         Supplier<Integer> supplier = () -> new Random().nextInt(100);
 
+        for (int i = 0; i < 10; i++) {
+            list.add(supplier.get());
+        }
+
+//        list.forEach(System.out::println);
+        System.out.println(list);
+        System.out.println("-------------------------------------------------------------");
+
+        int m = list.stream().reduce((accumulator, element) -> accumulator + element).get();
+        System.out.println(m);
+
     }
 }
