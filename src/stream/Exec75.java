@@ -40,11 +40,9 @@ public class Exec75 {
         nutList.forEach(System.out::println);
         System.out.println("---------------------------------------");
 
-        List<Nut> sortedNut = new ArrayList<>();
+        Comparator<Nut> nutComparator = Comparator.comparingInt(Nut::getId);
 
-        Comparator<Nut> nutComparator = (o1, o2) -> Integer.compare(o1.getId(), o2.getId());
-
-        sortedNut = nutList.stream().sorted(nutComparator).toList();
+        List<Nut> sortedNut = nutList.stream().sorted(nutComparator).toList();
 
         sortedNut.forEach(System.out::println);
         System.out.println("---------------------------------------");
