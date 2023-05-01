@@ -35,6 +35,24 @@ public class Exec74 {
         } else {
             System.out.println("Not Present");
         }
+        System.out.println("-------------------------------------------------------------");
+
+        int s = list.stream().reduce(1, (integer, integer2) -> integer - integer2);
+        System.out.println(s);
+        System.out.println("-------------------------------------------------------------");
+
+        List<String> list2 = new ArrayList<>();
+
+        list2.add("AAA");
+        list2.add("BBB");
+        list2.add("CCC");
+        list2.add("DDD");
+        list2.add("EEE");
+        list2.add("FFF");
+
+        String s1 = list2.stream().reduce(String::concat).get();
+        System.out.println(s1);
+        System.out.println("-------------------------------------------------------------");
 
 
 
