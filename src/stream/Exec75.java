@@ -60,7 +60,7 @@ public class Exec75 {
         strings.forEach(System.out::println);
         System.out.println("---------------------------------------");
 
-        String s = strings.stream().reduce(String::concat).get();
+        String s = strings.stream().reduce(String::concat).toString();
         System.out.println(s);
 
         System.out.println(s.toLowerCase());
