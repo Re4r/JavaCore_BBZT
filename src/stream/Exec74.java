@@ -54,9 +54,15 @@ public class Exec74 {
         System.out.println(s1);
         System.out.println("-------------------------------------------------------------");
 
-
-
+        Optional<String> stringOptional = list2.stream().reduce(String::concat);
+        if (stringOptional.isPresent()) {
+            System.out.println(stringOptional.get());
+        } else {
+            System.out.println("Not Present");
+        }
+        System.out.println("-------------------------------------------------------------");
     }
+
     static String concatination(String s1, String s2) {
         return s1 + s2;
     }
