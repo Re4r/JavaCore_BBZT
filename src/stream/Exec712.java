@@ -75,6 +75,13 @@ public class Exec712 {
         System.out.println(nodeMax + " MAX");
         System.out.println("-------------------------------------------------------");
 
+        nodeSet.stream()
+                .filter(n -> n.getId() % 2 == 0)
+                .limit(4)
+                .forEach(System.out::println);
+
+        System.out.println("-------------------------------------------------------");
+
 
 
 
