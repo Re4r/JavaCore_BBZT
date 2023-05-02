@@ -1,7 +1,9 @@
 package stream;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Exec76 {
     public static void main(String[] args) {
@@ -37,7 +39,7 @@ public class Exec76 {
         Supplier<Mod> modSupplier = new Supplier<Mod>() {
             @Override
             public Mod get() {
-                return new Mod("AQ".concat(String.valueOf(new Random().nextInt(1000))),
+                return new Mod("AQ".concat(String.valueOf(new Random().nextInt(100000))),
                         new Random().nextInt(10000));
             }
         };
@@ -49,6 +51,31 @@ public class Exec76 {
 
         modSet.forEach(System.out::println);
         System.out.println("---------------------------------------------------------------------------------------");
+
+        Predicate<Mod> modPredicate = new Predicate<Mod>() {
+            @Override
+            public boolean test(Mod mod) {
+                return mod.getName().length() < 7;
+            }
+        };
+
+        Comparator<Mod> modCodeComparator = new Comparator<Mod>() {
+            @Override
+            public int compare(Mod o1, Mod o2) {
+                return Integer.compare(o1.getCode(), o2.getCode());
+            }
+        };
+
+        Set<Mod> mods = modSet.stream()
+                .filter(modPredicate)
+                .map(mod -> mod.setName(mod.getName().concat("sec")))
+                .sorted(modCodeComparator)
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+
+        mods.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
+
+
 
 
     }
@@ -67,16 +94,18 @@ class Mod {
         return name;
     }
 
-    public void setName(String name) {
+    public Mod setName(String name) {
         this.name = name;
+        return this;
     }
 
     public int getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public Mod setCode(int code) {
         this.code = code;
+        return this;
     }
 
     @Override
