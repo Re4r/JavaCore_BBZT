@@ -77,7 +77,14 @@ public class Exec712 {
 
         nodeSet.stream()
                 .filter(n -> n.getId() % 2 == 0)
-                .limit(4)
+                .limit(2)
+                .forEach(System.out::println);
+
+        System.out.println("-------------------------------------------------------");
+
+        nodeSet.stream()
+                .filter(n -> n.getId() % 2 == 0)
+                .skip(2)
                 .forEach(System.out::println);
 
         System.out.println("-------------------------------------------------------");
