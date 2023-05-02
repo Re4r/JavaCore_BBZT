@@ -99,7 +99,16 @@ public class Exec76 {
                 .collect(Collectors.toCollection(HashSet::new));
 
         setAll.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
 
+        Stream<Integer> stream11 = Stream.of(1, 2, 3, 4, 5, 6, 7);
+        Stream<Integer> stream22 = Stream.of(1, 3, 5, 7);
+        List<Integer> integerList = Stream.concat(stream11, stream22)
+                .distinct()
+                .collect(Collectors.toCollection(ArrayList::new));
+
+
+        integerList.forEach(System.out::println);
 
     }
 }
