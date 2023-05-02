@@ -30,6 +30,16 @@ public class Exec711 {
         System.out.println(pool1);
         System.out.println(pool2);
         System.out.println(pool3);
+        System.out.println("-------------------------------------");
+
+        List<Pool> poolList = new ArrayList<>();
+
+        poolList.add(pool1);
+        poolList.add(pool2);
+        poolList.add(pool3);
+
+        poolList.forEach(System.out::println);
+        System.out.println("-------------------------------------");
 
 
 
