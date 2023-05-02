@@ -38,7 +38,7 @@ public class Exec718 {
 
         double sum2 = set.stream()
                 .parallel()
-                .reduce((aDouble, aDouble2) -> aDouble + aDouble2)
+                .reduce(Double::sum)
 //                .map(aDouble -> Math.floor(aDouble))
                 .get();
 
