@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class Exec718 {
     public static void main(String[] args) {
 
-        double[] array = new double[100];
+        double[] array = new double[1000];
 
         for (int i = 0; i < array.length; i++) {
             array[i] = new Random().nextDouble(1000);
@@ -30,15 +30,16 @@ public class Exec718 {
 
         double sum = list.parallelStream()
                 .mapToDouble(Double::doubleValue)
-                .map(operand -> Math.floor(operand))
+//                .map(operand -> Math.floor(operand))
                 .sum();
 
         System.out.println(sum);
         System.out.println("-----------------------------------");
 
-        double sum2 = list.parallelStream()
+        double sum2 = set.stream()
+                .parallel()
                 .reduce((aDouble, aDouble2) -> aDouble + aDouble2)
-                .map(aDouble -> Math.floor(aDouble))
+//                .map(aDouble -> Math.floor(aDouble))
                 .get();
 
         System.out.println(sum2);
