@@ -20,14 +20,18 @@ public class Exec76 {
         System.out.println(Arrays.toString(ints));
         System.out.println("---------------------------------------------------------------------------------------");
 
-        int x = Arrays.stream(ints)
+        OptionalInt xo = Arrays.stream(ints)
                 .filter(v -> v % 10 == 0)
                 .map(v -> v * 10)
                 .sorted()
-                .reduce(Integer::sum)
-                .getAsInt();
+                .reduce(Integer::sum);
 
-        System.out.println(x);
+        int xop = 0;
+        if (xo.isPresent()) {
+            xop = xo.getAsInt();
+        }
+
+        System.out.println(xop + " !!!!!!!!!!!!!!!!");
         System.out.println("---------------------------------------------------------------------------------------");
 
         Set<Mod> modSet = new HashSet<>();
