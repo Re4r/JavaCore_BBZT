@@ -105,10 +105,18 @@ public class Exec76 {
         Stream<Integer> stream22 = Stream.of(1, 3, 5, 7);
         List<Integer> integerList = Stream.concat(stream11, stream22)
                 .distinct()
+                .peek(System.out::println)
                 .collect(Collectors.toCollection(ArrayList::new));
+        System.out.println("---------------------------------------------------------------------------------------");
 
 
         integerList.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
+//        System.out.println(stream11.count());
+//        System.out.println(stream22.count());
+
+
+
 
     }
 }
