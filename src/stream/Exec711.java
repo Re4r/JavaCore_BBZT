@@ -3,6 +3,7 @@ package stream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class Exec711 {
@@ -12,9 +13,25 @@ public class Exec711 {
             return new Node(new Random().nextInt(1000), new Random().nextDouble(100));
         };
 
+//        Consumer<Node> nodeConsumerPool1 = node -> node.setId(node.getId() + 1000);
+
         Pool pool1 = new Pool("PoolOne");
         Pool pool2 = new Pool("PoolTwo");
         Pool pool3 = new Pool("PoolThree");
+
+        for (int i = 0; i < 30; i++) {
+            Random r = new Random();
+            int rand = r.nextInt(3);
+            if (rand == 0) pool1.addNodeToPool(nodeSupplier.get());
+            if (rand == 1) pool2.addNodeToPool(nodeSupplier.get());
+            if (rand == 2) pool3.addNodeToPool(nodeSupplier.get());
+        }
+
+        System.out.println(pool1);
+        System.out.println(pool2);
+        System.out.println(pool3);
+
+
 
 
 
@@ -87,5 +104,17 @@ class Pool {
 
     public List<Node> getNodeList() {
         return nodeList;
+    }
+
+    void addNodeToPool(Node node) {
+        nodeList.add(node);
+    }
+
+    @Override
+    public String toString() {
+        return "Pool{" +
+                "name: " + name + '\'' +
+                ", nodeList: " + nodeList.size() +
+                '}';
     }
 }
