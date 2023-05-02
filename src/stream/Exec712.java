@@ -33,6 +33,17 @@ public class Exec712 {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
+        System.out.println("-------------------------------------------------------");
+
+        Map<Double, List<Node>> map2 = nodeSet.stream()
+                .collect(Collectors.groupingBy(Node::getNumber));
+
+        for (Map.Entry entry : map2.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+        System.out.println("-------------------------------------------------------");
+
 
     }
 }
