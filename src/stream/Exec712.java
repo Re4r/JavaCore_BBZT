@@ -1,6 +1,7 @@
 package stream;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -41,7 +42,17 @@ public class Exec712 {
         for (Map.Entry entry : map2.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
+        System.out.println("-------------------------------------------------------");
 
+        Predicate<Node> nodeNumberPredicate = node -> node.getNumber() < 50;
+        Predicate<Node> nodeIdPredicate = node -> node.getId() > 500;
+
+        Map<Boolean, List<Node>> map3 = nodeSet.stream()
+                .collect(Collectors.partitioningBy(nodeIdPredicate));
+
+        for (Map.Entry entry : map3.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
         System.out.println("-------------------------------------------------------");
 
 
