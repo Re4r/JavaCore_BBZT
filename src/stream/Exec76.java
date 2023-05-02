@@ -55,7 +55,7 @@ public class Exec76 {
         Predicate<Mod> modPredicate = new Predicate<Mod>() {
             @Override
             public boolean test(Mod mod) {
-                return mod.getName().length() < 7;
+                return mod.getCode() < 3000;
             }
         };
 
@@ -74,6 +74,23 @@ public class Exec76 {
 
         mods.forEach(System.out::println);
         System.out.println("---------------------------------------------------------------------------------------");
+
+        Set<String> stringSet = modSet.stream()
+                .map(Mod::getName)
+                .collect(Collectors.toCollection(TreeSet::new));
+
+        stringSet.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
+
+        int sx = modSet.stream()
+                .collect(Collectors.summingInt(Mod::getCode));
+        System.out.println(sx);
+
+        int xe = modSet.stream()
+                .collect(Collectors.maxBy(modCodeComparator))
+                .get().getCode();
+
+        System.out.println(xe);
 
 
 
