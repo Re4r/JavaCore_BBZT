@@ -4,18 +4,14 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Exec76 {
     public static void main(String[] args) {
 
         int[] ints = new int[50];
 
-        Supplier<Integer> supplier = new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return new Random().nextInt(100);
-            }
-        };
+        Supplier<Integer> supplier = () -> new Random().nextInt(100);
 
         for (int i = 0; i < ints.length; i++) {
             ints[i] = supplier.get();
@@ -28,7 +24,7 @@ public class Exec76 {
                 .filter(v -> v % 10 == 0)
                 .map(v -> v * 10)
                 .sorted()
-                .reduce((acc, v) -> acc + v)
+                .reduce(Integer::sum)
                 .getAsInt();
 
         System.out.println(x);
@@ -36,13 +32,8 @@ public class Exec76 {
 
         Set<Mod> modSet = new HashSet<>();
 
-        Supplier<Mod> modSupplier = new Supplier<Mod>() {
-            @Override
-            public Mod get() {
-                return new Mod("AQ".concat(String.valueOf(new Random().nextInt(100000))),
-                        new Random().nextInt(10000));
-            }
-        };
+        Supplier<Mod> modSupplier = () -> new Mod("AQ".concat(String.valueOf(new Random().nextInt(100000))),
+                new Random().nextInt(10000));
 
 
         for (int i = 0; i < 10; i++) {
@@ -52,19 +43,9 @@ public class Exec76 {
         modSet.forEach(System.out::println);
         System.out.println("---------------------------------------------------------------------------------------");
 
-        Predicate<Mod> modPredicate = new Predicate<Mod>() {
-            @Override
-            public boolean test(Mod mod) {
-                return mod.getCode() < 3000;
-            }
-        };
+        Predicate<Mod> modPredicate = mod -> mod.getCode() < 3000;
 
-        Comparator<Mod> modCodeComparator = new Comparator<Mod>() {
-            @Override
-            public int compare(Mod o1, Mod o2) {
-                return Integer.compare(o1.getCode(), o2.getCode());
-            }
-        };
+        Comparator<Mod> modCodeComparator = Comparator.comparingInt(Mod::getCode);
 
         Set<Mod> mods = modSet.stream()
                 .filter(modPredicate)
@@ -82,17 +63,32 @@ public class Exec76 {
         stringSet.forEach(System.out::println);
         System.out.println("---------------------------------------------------------------------------------------");
 
-        int sx = modSet.stream()
-                .collect(Collectors.summingInt(Mod::getCode));
+        int sx = modSet.stream().mapToInt(Mod::getCode).sum();
         System.out.println(sx);
 
         int xe = modSet.stream()
-                .collect(Collectors.maxBy(modCodeComparator))
+                .max(modCodeComparator)
                 .get().getCode();
 
         System.out.println(xe);
 
+        Set<Integer> integerSet = modSet.stream()
+                .map(Mod::getCode)
+                .collect(Collectors.toCollection(HashSet::new));
 
+        integerSet.forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------");
+
+        Stream<String> stringStream = integerSet.stream()
+                .map(String::valueOf);
+
+        Stream<String> stringStream1 = stringSet.stream()
+                .map(String::toUpperCase);
+
+        Set<String> setAll = Stream.concat(stringStream, stringStream1)
+                .collect(Collectors.toCollection(HashSet::new));
+
+        setAll.forEach(System.out::println);
 
 
     }
