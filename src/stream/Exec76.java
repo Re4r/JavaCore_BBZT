@@ -70,11 +70,17 @@ public class Exec76 {
         int sx = modSet.stream().mapToInt(Mod::getCode).sum();
         System.out.println(sx);
 
-        int xe = modSet.stream()
-                .max(modCodeComparator)
-                .get().getCode();
+        Optional<Mod> xe = modSet.stream()
+                .max(modCodeComparator);
+        int maxValue = 0;
+        if (xe.isPresent()) {
+            maxValue = xe.get().getCode();
+        } else {
+            System.out.println("Not present");
+        }
 
-        System.out.println(xe);
+        System.out.println(maxValue + " **********************");
+        System.out.println("---------------------------------------------------------------------------------------");
 
         Set<Integer> integerSet = modSet.stream()
                 .map(Mod::getCode)
