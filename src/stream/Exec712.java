@@ -55,6 +55,11 @@ public class Exec712 {
         }
         System.out.println("-------------------------------------------------------");
 
+        Optional<Node> node = nodeSet.stream().findFirst();
+        Node node1;
+        if (node.isPresent()) node1 = node.get();
+        System.out.println(node);
+
 
     }
 }
