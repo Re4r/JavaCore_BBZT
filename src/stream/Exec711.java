@@ -42,6 +42,11 @@ public class Exec711 {
 
         poolList.stream()
                 .flatMap(pool -> pool.getNodeList().stream())
+                .filter(node -> node.getNumber() < 50)
+                .peek(System.out::println)
+                .map(node -> node.setNumber(node.getNumber() + node.getId()))
+                .filter(node -> node.getNumber() < 500)
+                .sorted((o1, o2) -> Double.compare(o1.getNumber(), o2.getNumber()))
                 .forEach(node -> System.out.println(node.getNumber()));
 
         System.out.println("-------------------------------------");
