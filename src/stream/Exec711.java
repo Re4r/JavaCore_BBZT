@@ -2,9 +2,21 @@ package stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.function.Supplier;
 
 public class Exec711 {
     public static void main(String[] args) {
+
+        Supplier<Node> nodeSupplier = () -> {
+            return new Node(new Random().nextInt(1000), new Random().nextDouble(100));
+        };
+
+        Pool pool1 = new Pool("PoolOne");
+        Pool pool2 = new Pool("PoolTwo");
+        Pool pool3 = new Pool("PoolThree");
+
+
 
     }
 }
@@ -71,5 +83,9 @@ class Pool {
     public Pool(String name) {
         this.name = name;
         this.nodeList = new ArrayList<>();
+    }
+
+    public List<Node> getNodeList() {
+        return nodeList;
     }
 }
