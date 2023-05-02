@@ -1,10 +1,9 @@
 package stream;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Exec711 {
     public static void main(String[] args) {
@@ -40,6 +39,16 @@ public class Exec711 {
 
         poolList.forEach(System.out::println);
         System.out.println("-------------------------------------");
+
+        poolList.stream()
+                .flatMap(pool -> pool.getNodeList().stream())
+                .forEach(node -> System.out.println(node.getNumber()));
+
+        System.out.println("-------------------------------------");
+
+
+
+
 
 
 
