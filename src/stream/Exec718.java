@@ -22,10 +22,28 @@ public class Exec718 {
                 .boxed()
                 .collect(Collectors.toCollection(HashSet::new));
 
-        list.forEach(System.out::println);
+//        list.forEach(System.out::println);
+//        System.out.println("-----------------------------------");
+//
+//        set.forEach(System.out::println);
+//        System.out.println("-----------------------------------");
+
+        double sum = list.parallelStream()
+                .mapToDouble(Double::doubleValue)
+                .map(operand -> Math.floor(operand))
+                .sum();
+
+        System.out.println(sum);
         System.out.println("-----------------------------------");
 
-        set.forEach(System.out::println);
+        double sum2 = list.parallelStream()
+                .reduce((aDouble, aDouble2) -> aDouble + aDouble2)
+                .map(aDouble -> Math.floor(aDouble))
+                .get();
+
+        System.out.println(sum2);
+        System.out.println("-----------------------------------");
+        System.out.println(sum == sum2);
         System.out.println("-----------------------------------");
 
     }
