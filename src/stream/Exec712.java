@@ -112,6 +112,12 @@ public class Exec712 {
         System.out.println(avg);
         System.out.println("-------------------------------------------------------");
 
+        double min = nodeSet.stream().mapToDouble(Node::getNumber).min().getAsDouble();
+        double max = nodeSet.stream().mapToDouble(Node::getNumber).max().getAsDouble();
+
+        System.out.println("min: " + min + " max: " + max);
+        System.out.println("-------------------------------------------------------");
+
 
 
 
