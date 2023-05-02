@@ -1,9 +1,8 @@
 package stream;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Exec712 {
     public static void main(String[] args) {
@@ -27,7 +26,12 @@ public class Exec712 {
         System.out.println(count);
         System.out.println("-------------------------------------------------------");
 
+        Map<Integer, List<Node>> map1 = nodeSet.stream()
+                .collect(Collectors.groupingBy(Node::getId));
 
+        for (Map.Entry entry : map1.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
 
 
     }
