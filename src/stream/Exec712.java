@@ -99,6 +99,19 @@ public class Exec712 {
         System.out.println(integerList);
         System.out.println("-------------------------------------------------------");
 
+        int sum = nodeSet.stream().mapToInt(Node::getId).sum();
+        System.out.println(sum);
+
+        System.out.println("-------------------------------------------------------");
+
+        double avg = nodeSet.stream()
+                .mapToInt(Node::getId)
+                .average()
+                .getAsDouble();
+
+        System.out.println(avg);
+        System.out.println("-------------------------------------------------------");
+
 
 
 
