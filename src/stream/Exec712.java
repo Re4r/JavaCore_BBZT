@@ -59,6 +59,23 @@ public class Exec712 {
         Node node1;
         if (node.isPresent()) node1 = node.get();
         System.out.println(node);
+        System.out.println("-------------------------------------------------------");
+
+        Node nodeMin = nodeSet.stream()
+                .min(Comparator.comparingInt(Node::getId))
+                .get();
+
+        System.out.println(nodeMin + " MIN");
+        System.out.println("-------------------------------------------------------");
+
+        Node nodeMax = nodeSet.stream()
+                .max(Comparator.comparingDouble(Node::getNumber))
+                .get();
+
+        System.out.println(nodeMax + " MAX");
+        System.out.println("-------------------------------------------------------");
+
+
 
 
     }
