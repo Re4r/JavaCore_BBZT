@@ -89,6 +89,16 @@ public class Exec712 {
 
         System.out.println("-------------------------------------------------------");
 
+        List<Integer> integerList = nodeSet.stream()
+                .mapToInt(Node::getId)
+                .boxed()
+                .filter(i -> i % 2 != 0)
+                .sorted()
+                .collect(Collectors.toList());
+
+        System.out.println(integerList);
+        System.out.println("-------------------------------------------------------");
+
 
 
 
