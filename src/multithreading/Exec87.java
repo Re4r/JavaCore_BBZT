@@ -21,6 +21,7 @@ class Count {
 
     static synchronized void increment() {
         count++;
+        System.out.println("Base count: " + count);
     }
 }
 
@@ -30,7 +31,7 @@ class Run implements Runnable {
     public void run() {
         for (int i = 0; i < 5; i++) {
             Count.increment();
-            System.out.printf("%s : %d%n", Thread.currentThread().getName(), Count.count);
+//            System.out.printf("%s : %d%n", Thread.currentThread().getName(), Count.count);
         }
     }
 }
