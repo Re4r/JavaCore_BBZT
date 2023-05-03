@@ -23,7 +23,12 @@ class Counter2 {
 
 class Sync implements Runnable {
 
-    public void doWork() {
+    private void doSmthg() {
+        System.out.println("not synchronized " + Thread.currentThread().getName());
+    }
+
+    private void doWork() {
+        doSmthg();
         synchronized (this) {
             Counter2.counter++;
             System.out.println(Counter2.counter);
