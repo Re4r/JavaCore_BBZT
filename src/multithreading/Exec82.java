@@ -5,13 +5,11 @@ public class Exec82 {
 
         MyThread1 thread1 = new MyThread1();
         MyThread2 thread2 = new MyThread2();
-
-//        thread1.start();
-//        thread2.start();
-
         Thread thread3 = new Thread(new MyThread3());
         Thread thread4 = new Thread(new MyThread4());
 
+        thread1.start();
+        thread2.start();
         thread3.start();
         thread4.start();
     }
