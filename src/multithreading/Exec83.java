@@ -30,11 +30,11 @@ public class Exec83 {
         System.out.println("-----------------------------------------------");
 
         thread1.setName("threadOne");
-        thread1.setPriority(3);
+        thread1.setPriority(Thread.NORM_PRIORITY);
         thread2.setName("threadTwo");
-        thread2.setPriority(7);
+        thread2.setPriority(Thread.MIN_PRIORITY);
         thread3.setName("threadThree");
-        thread3.setPriority(10);
+        thread3.setPriority(Thread.MAX_PRIORITY);
 
         System.out.println(thread1.getName() + " : " + thread1.getPriority());
         System.out.println(thread2.getName() + " : " + thread2.getPriority());
