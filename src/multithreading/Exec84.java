@@ -13,12 +13,18 @@ public class Exec84 {
 
         try {
             thread1.join();
+            thread2.join();
+            thread3.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        System.out.println(Thread.currentThread().getName() + " : " + Thread.currentThread().getPriority());
-
+        System.out.println(new StringBuilder()
+                .append(Thread.currentThread().getName())
+                .append(" : ")
+                .append(Thread.currentThread().getPriority())
+                .append(" Done...")
+                .toString());
     }
 }
 
