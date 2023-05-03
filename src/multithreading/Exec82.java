@@ -5,11 +5,13 @@ public class Exec82 {
 
 //        MyThread1 thread1 = new MyThread1();
 //        MyThread2 thread2 = new MyThread2();
+
 //        Thread thread3 = new Thread(new MyThread3());
 //        Thread thread4 = new Thread(new MyThread4());
 //
 //        thread1.start();
 //        thread2.start();
+
 //        thread3.start();
 //        thread4.start();
 
@@ -31,12 +33,9 @@ public class Exec82 {
 //            }
 //        })).start();
 
-        Thread thread5 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 50; i++) {
-                    System.out.println(i);
-                }
+        Thread thread5 = new Thread(() -> {
+            for (int i = 0; i < 50; i++) {
+                System.out.println(i);
             }
         });
 
