@@ -1,12 +1,11 @@
 package multithreading;
 
-public class Exec872 {
+public class Exec882 {
     static int counter;
 
     static synchronized void increment() {
         counter++;
     }
-
 
     public static void main(String[] args) {
 
@@ -35,12 +34,12 @@ public class Exec872 {
 
 }
 
-class Repeater extends Thread {
+class Repeater2 extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 100; i++) {
-            Exec872.increment();
-            System.out.println(Thread.currentThread().getName() + " > " + Exec872.counter);
+            Exec882.increment();
+            System.out.println(Thread.currentThread().getName() + " > " + Exec882.counter);
         }
     }
 }
