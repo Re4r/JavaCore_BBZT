@@ -18,6 +18,10 @@ public class Exec87 {
 
 class Count {
     static int count = 0;
+
+    static synchronized void increment() {
+        count++;
+    }
 }
 
 class Run implements Runnable {
@@ -25,7 +29,7 @@ class Run implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < 5; i++) {
-            Count.count++;
+            Count.increment();
             System.out.printf("%s : %d%n", Thread.currentThread().getName(), Count.count);
         }
     }
