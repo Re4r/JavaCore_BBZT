@@ -45,7 +45,25 @@ public class Exec83 {
         thread2.start();
         thread3.start();
 
+        Examp examp = new Examp();
+        Examp examp1 = new Examp();
+        Examp examp2 = new Examp();
 
+        examp.start();
+        examp1.start();
+        examp2.start();
 
+        System.out.println("-----------------------------------------------");
+
+    }
+}
+
+class Examp extends Thread {
+    @Override
+    public void run() {
+        System.out.println(new StringBuilder()
+                .append("Method Run: Thread Name: ")
+                .append(Thread.currentThread().getName())
+                .toString());
     }
 }
