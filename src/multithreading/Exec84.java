@@ -11,6 +11,14 @@ public class Exec84 {
         thread2.start();
         thread3.start();
 
+        try {
+            thread1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(Thread.currentThread().getName() + " : " + Thread.currentThread().getPriority());
+
     }
 }
 
