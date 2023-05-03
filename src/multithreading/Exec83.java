@@ -3,6 +3,11 @@ package multithreading;
 public class Exec83 {
     public static void main(String[] args) {
 
+        System.out.println(new StringBuilder()
+                .append("Method Run: Thread Name: ")
+                .append(Thread.currentThread().getName())
+                .toString());
+
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
