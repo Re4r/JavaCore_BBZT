@@ -1,6 +1,6 @@
 package multithreading;
 
-public class Exec81 {
+public class Exec82 {
     public static void main(String[] args) {
 
     }
