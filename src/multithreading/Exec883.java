@@ -31,27 +31,26 @@ public class Exec883 {
 }
 
 class Call {
-
-    static final Synchcro SYNCHCRO;
+    static final Object LOCK;
 
     static {
-        SYNCHCRO = new Synchcro();
+        LOCK = new Object();
     }
 
     void mobileCall() {
-        synchronized (SYNCHCRO) {
+        synchronized (LOCK) {
             System.out.println("Mobile call starts...");
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("Modile call ends...");
+            System.out.println("Mobile call ends...");
         }
     }
 
     void skypeCall() {
-        synchronized (SYNCHCRO) {
+        synchronized (LOCK) {
             System.out.println("Skype call starts...");
             try {
                 Thread.sleep(3000);
@@ -64,7 +63,7 @@ class Call {
     }
 
     void whatsUpCall() {
-        synchronized (SYNCHCRO) {
+        synchronized (LOCK) {
             System.out.println("WhatsUp call starts...");
             try {
                 Thread.sleep(4000);
@@ -76,5 +75,3 @@ class Call {
     }
 }
 
-class Synchcro {
-}
