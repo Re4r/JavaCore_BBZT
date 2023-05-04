@@ -24,15 +24,22 @@ public class Exec883 {
             }
         });
 
-
-
-
+        mobileCallThread.start();
+        skypeCallThread.start();
+        whatsupCallThread.start();
     }
 }
 
 class Call {
 
+    static final Synchcro SYNCHCRO;
+
+    static {
+        SYNCHCRO = new Synchcro();
+    }
+
     void mobileCall() {
+        System.out.println(this);
         System.out.println("Mobile call starts...");
         try {
             Thread.sleep(2000);
@@ -43,6 +50,7 @@ class Call {
     }
 
     void skypeCall() {
+        System.out.println(this);
         System.out.println("Skype call starts...");
         try {
             Thread.sleep(3000);
@@ -53,6 +61,7 @@ class Call {
     }
 
     void whatsUpCall() {
+        System.out.println(this);
         System.out.println("WhatsUp call starts...");
         try {
             Thread.sleep(4000);
@@ -61,4 +70,7 @@ class Call {
         }
         System.out.println("WhatsUp call ends...");
     }
+}
+
+class Synchcro {
 }
