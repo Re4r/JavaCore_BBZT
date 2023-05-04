@@ -26,11 +26,16 @@ final class Employee extends Thread {
 
     @Override
     public void run() {
+
+        System.out.println(Thread.currentThread().getName() + " > Waiting for operation...");
+
         lock.lock();
-        System.out.println(Thread.currentThread().getName() + " Start using device...");
+
+        System.out.println(Thread.currentThread().getName() + " > Start using device...");
+
         try {
             Thread.sleep(2000);
-            System.out.println(Thread.currentThread().getName() + " Completed operation");
+            System.out.println(Thread.currentThread().getName() + " > Completed operation");
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
