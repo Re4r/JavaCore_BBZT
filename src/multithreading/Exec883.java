@@ -31,7 +31,7 @@ public class Exec883 {
 }
 
 class Call {
-    static final Object LOCK;
+    private static final Object LOCK;
 
     static {
         LOCK = new Object();
