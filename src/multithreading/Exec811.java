@@ -27,5 +27,33 @@ final class Caller {
 
     }
 
+    void skypeCall() {
+        LOCK.lock();
+        try {
+            System.out.println(Thread.currentThread().getName() + " Skype call starts...");
+            Thread.sleep(3000);
+            System.out.println(Thread.currentThread().getName() + " Skype call ends...");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } finally {
+            LOCK.unlock();
+        }
+
+    }
+
+    void whatsupCall() {
+        LOCK.lock();
+        try {
+            System.out.println(Thread.currentThread().getName() + " WhatsUp call starts...");
+            Thread.sleep(3000);
+            System.out.println(Thread.currentThread().getName() + " WhatsUp call ends...");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } finally {
+            LOCK.unlock();
+        }
+
+    }
+
 
 }
