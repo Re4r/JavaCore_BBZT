@@ -1,15 +1,21 @@
 package multithreading;
 
+import java.util.stream.IntStream;
+
 public class Exec813 {
 
     public static void main(String[] args) {
+
         System.out.println(Thread.currentThread().getName() + " > STARTS");
 
         InterruptedThread thread = new InterruptedThread();
+
         thread.start();
+
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
             thread.interrupt();
+            thread.join();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -24,6 +30,10 @@ class InterruptedThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 1000000; i++) {
+            if (isInterrupted()) {
+                System.out.println(Thread.currentThread().getName() + " > Interrupted");
+                return;
+            }
             sqrtSum += Math.sqrt(i);
         }
         System.out.println(sqrtSum);
