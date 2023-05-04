@@ -30,16 +30,19 @@ class InterruptedThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 1000000000; i++) {
+
             if (isInterrupted()) {
                 System.out.println(Thread.currentThread().getName() + " > Interrupted");
                 return;
             }
             sqrtSum += Math.sqrt(i);
+
             try {
                 sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 System.out.println(Thread.currentThread().getName() + " > Interrupted during sleep");
+                System.out.println(sqrtSum);
                 return;
             }
         }
