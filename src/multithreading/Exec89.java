@@ -25,8 +25,13 @@ public class Exec89 {
 }
 
 class Market {
-    private static int breadCount = 0;
-    private static final Object LOCK = new Object();
+    private static int breadCount;
+    private static final Object LOCK;
+
+    static {
+        breadCount = 0;
+        LOCK = new Object();
+    }
 
     void getBread() {
         synchronized (LOCK) {
