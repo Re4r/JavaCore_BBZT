@@ -11,6 +11,13 @@ public class Bankomat {
         new Employee(lock);
         new Employee(lock);
         new Employee(lock);
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         new Employee(lock);
         new Employee(lock);
     }
