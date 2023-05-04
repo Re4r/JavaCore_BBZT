@@ -3,14 +3,25 @@ package multithreading;
 public class Exec89 {
     public static void main(String[] args) {
 
+        Market market = new Market();
+
+        Producer producer = new Producer(market);
+        Customer customer = new Customer(market);
+
+        Thread threadProducer = new Thread(producer);
+        Thread threadCustomer = new Thread(customer);
+
+        threadProducer.start();
+        threadCustomer.start();
+
     }
 }
 
 class Market {
-    private int breadCount;
+    private static int breadCount = 0;
 
     synchronized void getBread() {
-        while (breadCount == 0) {
+        while (breadCount < 1) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -39,7 +50,6 @@ class Market {
 }
 
 class Producer implements Runnable {
-
     private Market market;
 
     public Producer(Market market) {
