@@ -27,25 +27,25 @@ class Market {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            breadCount--;
-            System.out.println("Customer buy 1 bread");
-            System.out.println("Quantity of bread in the market: " + breadCount);
-            notify();
         }
+        breadCount--;
+        System.out.println("Customer buy 1 bread");
+        System.out.println("Quantity of bread in the market: " + breadCount);
+        notify();
     }
 
     synchronized void putBread() {
-        while (breadCount >= 5) {
+        while (breadCount >= 1) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            breadCount++;
-            System.out.println("Producer added 1 bread to the market");
-            System.out.println("Quantity of bread in the market: " + breadCount);
-            notify();
         }
+        breadCount++;
+        System.out.println("Producer added 1 bread to the market");
+        System.out.println("Quantity of bread in the market: " + breadCount);
+        notify();
     }
 }
 
