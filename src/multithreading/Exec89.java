@@ -19,33 +19,39 @@ public class Exec89 {
 
 class Market {
     private static int breadCount = 0;
+    private static final Object LOCK = new Object();
 
-    synchronized void getBread() {
-        while (breadCount < 1) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+    void getBread() {
+        synchronized (LOCK) {
+            while (breadCount < 1) {
+                try {
+                    LOCK.wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
+            breadCount--;
+            System.out.println("Customer buy 1 bread");
+            System.out.println("Quantity of bread in the market: " + breadCount);
+            LOCK.notify();
         }
-        breadCount--;
-        System.out.println("Customer buy 1 bread");
-        System.out.println("Quantity of bread in the market: " + breadCount);
-        notify();
+
     }
 
-    synchronized void putBread() {
-        while (breadCount >= 1) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+     void putBread() {
+        synchronized (LOCK) {
+            while (breadCount >= 1) {
+                try {
+                    LOCK.wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
+            breadCount++;
+            System.out.println("Producer added 1 bread to the market");
+            System.out.println("Quantity of bread in the market: " + breadCount);
+            LOCK.notify();
         }
-        breadCount++;
-        System.out.println("Producer added 1 bread to the market");
-        System.out.println("Quantity of bread in the market: " + breadCount);
-        notify();
     }
 }
 
