@@ -18,7 +18,7 @@ class Market {
             }
             breadCount--;
             System.out.println("Customer buy 1 bread");
-            System.out.println("Qantity of bread in the market: " + breadCount);
+            System.out.println("Quantity of bread in the market: " + breadCount);
             notify();
         }
     }
@@ -32,7 +32,7 @@ class Market {
             }
             breadCount++;
             System.out.println("Producer added 1 bread to the market");
-            System.out.println("Qantity of bread in the market: " + breadCount);
+            System.out.println("Quantity of bread in the market: " + breadCount);
             notify();
         }
     }
