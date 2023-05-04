@@ -3,7 +3,7 @@ package multithreading;
 public class Exec812 {
     public static void main(String[] args) {
 
-        System.out.println(Thread.currentThread().getName() + "STARTS");
+        System.out.println(Thread.currentThread().getName() + " > STARTS");
 
         UserThread userThread = new UserThread();
         DaemonThread daemonThread = new DaemonThread();
@@ -16,7 +16,14 @@ public class Exec812 {
         userThread.start();
         daemonThread.start();
 
-        System.out.println(Thread.currentThread().getName() + "ENDS");
+        try {
+            userThread.join();
+            daemonThread.join(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(Thread.currentThread().getName() + " > ENDS");
 
     }
 }
@@ -24,7 +31,7 @@ public class Exec812 {
 class UserThread extends Thread {
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() + " is daemon: " + isDaemon());
+        System.out.println(Thread.currentThread().getName() + " > is daemon: " + isDaemon());
         for (char i = 'A'; i <= 'J'; i++) {
             try {
                 sleep(1000);
@@ -39,8 +46,8 @@ class UserThread extends Thread {
 class DaemonThread extends Thread {
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() + " is daemon: " + isDaemon());
-        for (char i = 1; i <= 1000; i++) {
+        System.out.println(Thread.currentThread().getName() + " > is daemon: " + isDaemon());
+        for (int i = 1; i <= 1000; i++) {
             try {
                 sleep(500);
                 System.out.println(i);
