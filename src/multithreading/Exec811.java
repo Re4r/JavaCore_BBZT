@@ -17,7 +17,7 @@ final class Caller {
         LOCK.lock();
         try {
             System.out.println(Thread.currentThread().getName() + " Mobile call starts...");
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             System.out.println(Thread.currentThread().getName() + " Mobile call ends...");
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -31,7 +31,7 @@ final class Caller {
         LOCK.lock();
         try {
             System.out.println(Thread.currentThread().getName() + " Skype call starts...");
-            Thread.sleep(3000);
+            Thread.sleep(4000);
             System.out.println(Thread.currentThread().getName() + " Skype call ends...");
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -45,7 +45,7 @@ final class Caller {
         LOCK.lock();
         try {
             System.out.println(Thread.currentThread().getName() + " WhatsUp call starts...");
-            Thread.sleep(3000);
+            Thread.sleep(6000);
             System.out.println(Thread.currentThread().getName() + " WhatsUp call ends...");
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
