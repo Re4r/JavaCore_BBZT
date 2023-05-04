@@ -3,7 +3,20 @@ package multithreading;
 public class Exec812 {
     public static void main(String[] args) {
 
+        System.out.println(Thread.currentThread().getName() + "STARTS");
 
+        UserThread userThread = new UserThread();
+        DaemonThread daemonThread = new DaemonThread();
+
+        userThread.setName("user_thread");
+        daemonThread.setName("daemon_thread");
+
+        daemonThread.setDaemon(true);
+
+        userThread.start();
+        daemonThread.start();
+
+        System.out.println(Thread.currentThread().getName() + "ENDS");
 
     }
 }
