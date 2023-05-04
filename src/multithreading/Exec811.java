@@ -1,11 +1,20 @@
 package multithreading;
 
-import java.sql.SQLOutput;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Exec811 {
     public static void main(String[] args) {
+
+        Caller caller = new Caller();
+
+        Thread thread1 = new Thread(() -> caller.mobileCall());
+        Thread thread2 = new Thread(() -> caller.skypeCall());
+        Thread thread3 = new Thread(() -> caller.whatsupCall());
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
 
     }
 }
