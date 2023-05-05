@@ -10,18 +10,21 @@ public class Exec814 {
         System.out.println(Thread.currentThread().getName() + " Starts...");
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ExecutorService executorServiceSingle = Executors.newSingleThreadExecutor();
 
         for (int i = 0; i < 10; i++) {
-            executorService.execute(new Fox());
+//            executorService.execute(new Fox());
+            executorServiceSingle.execute(new Fox());
         }
 
-        executorService.shutdown();
+//        executorService.shutdown();
+        executorServiceSingle.shutdown();
 
-        try {
-            executorService.awaitTermination(5, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            executorService.awaitTermination(5, TimeUnit.SECONDS);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
         System.out.println(Thread.currentThread().getName() + " Ends");
     }
