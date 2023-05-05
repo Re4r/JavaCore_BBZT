@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Exec815 {
     public static void main(String[] args) {
 
-        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(10);
 
 //        for (int i = 0; i < 10; i++) {
 //            scheduledExecutorService.schedule(new BlackFox(), 5, TimeUnit.SECONDS);
