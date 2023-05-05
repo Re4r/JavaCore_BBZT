@@ -1,6 +1,29 @@
 package multithreading;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 public class Exec815 {
+    public static void main(String[] args) {
+
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
+
+//        for (int i = 0; i < 10; i++) {
+//            scheduledExecutorService.schedule(new BlackFox(), 5, TimeUnit.SECONDS);
+//        }
+
+        scheduledExecutorService.scheduleAtFixedRate(new BlackFox(), 3, 3, TimeUnit.SECONDS);
+
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        scheduledExecutorService.shutdown();
+
+    }
 }
 
 class BlackFox implements Runnable {
@@ -15,7 +38,7 @@ class BlackFox implements Runnable {
         for (int i = 0; i < 3; i++) {
             counter++;
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
