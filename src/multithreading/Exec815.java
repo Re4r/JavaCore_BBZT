@@ -13,7 +13,7 @@ public class Exec815 {
 //            scheduledExecutorService.schedule(new BlackFox(), 5, TimeUnit.SECONDS);
 //        }
 
-        scheduledExecutorService.scheduleAtFixedRate(new BlackFox(), 3, 3, TimeUnit.SECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(new BlackFox(), 1, 1, TimeUnit.SECONDS);
 
         try {
             Thread.sleep(20000);
