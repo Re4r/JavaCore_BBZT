@@ -14,7 +14,7 @@ public class Exec815 {
 //        }
 
 //        scheduledExecutorService.scheduleAtFixedRate(new BlackFox(), 1, 1, TimeUnit.SECONDS);
-        scheduledExecutorService.scheduleWithFixedDelay(new BlackFox(), 1, 3, TimeUnit.SECONDS);
+//        scheduledExecutorService.scheduleWithFixedDelay(new BlackFox(), 1, 3, TimeUnit.SECONDS);
 
         try {
             Thread.sleep(20000);
