@@ -7,13 +7,14 @@ import java.util.concurrent.TimeUnit;
 public class Exec815 {
     public static void main(String[] args) {
 
-        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(10);
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(3);
 
 //        for (int i = 0; i < 10; i++) {
 //            scheduledExecutorService.schedule(new BlackFox(), 5, TimeUnit.SECONDS);
 //        }
 
-        scheduledExecutorService.scheduleAtFixedRate(new BlackFox(), 1, 1, TimeUnit.SECONDS);
+//        scheduledExecutorService.scheduleAtFixedRate(new BlackFox(), 1, 1, TimeUnit.SECONDS);
+        scheduledExecutorService.scheduleWithFixedDelay(new BlackFox(), 1, 3, TimeUnit.SECONDS);
 
         try {
             Thread.sleep(20000);
