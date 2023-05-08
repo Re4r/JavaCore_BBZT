@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 
 public class Exec818 {
-    public static void main(String[] args) {
 
-        Semaphore phoneBox = new Semaphore(2);
+    private static Semaphore phoneBox = new Semaphore(2);
+    public static void main(String[] args) {
 
         List<Person> personList = new ArrayList<>();
 
