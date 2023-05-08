@@ -24,10 +24,10 @@ class Playser extends Thread {
         this.actionList = actionList;
     }
 
-    private void whoWins(Action myAction, Action friendAction) {
-        if ((myAction == Action.STONE && friendAction == Action.SCISSORS)
-                || (myAction == Action.SCISSORS && friendAction == Action.PAPPER)
-                || (myAction == Action.PAPPER && friendAction == Action.STONE)) {
+    private void whoWins(Action action, Action reply) {
+        if ((action == Action.STONE && reply == Action.SCISSORS)
+                || (action == Action.SCISSORS && reply == Action.PAPPER)
+                || (action == Action.PAPPER && reply == Action.STONE)) {
             System.out.println(Thread.currentThread().getName() + " > WINS");
         }
     }
@@ -38,8 +38,9 @@ class Playser extends Thread {
         for (Action action : actionList) {
             try {
                 reply = actionExchanger.exchange(action);
+                whoWins(action, reply);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
     }
