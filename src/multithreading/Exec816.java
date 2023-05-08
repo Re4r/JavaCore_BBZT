@@ -2,6 +2,7 @@ package multithreading;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 public class Exec816 {
@@ -16,6 +17,10 @@ public class Exec816 {
 
         executorService.execute(factorial);
 
+        Future future = executorService.submit(factorial);
+
+        System.out.println(future.isDone());
+
         executorService.shutdown();
 
         try {
@@ -23,6 +28,8 @@ public class Exec816 {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+        System.out.println(future.isDone());
 
         System.out.println(factorialResult);
     }

@@ -9,12 +9,16 @@ public class Exec8162 {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-        Factorial2 factorial2 = new Factorial2(5);
+        Factorial2 factorial2 = new Factorial2(6);
 
         Future<Integer> future = executorService.submit(factorial2);
 
         try {
+            System.out.println(future.isDone());
+            System.out.println("Wants to get result...");
             factorialResult = future.get();
+            System.out.println("Got result...");
+            System.out.println(future.isDone());
         } catch (InterruptedException e) {
             e.printStackTrace();
             System.out.println(e.getCause());
@@ -45,6 +49,7 @@ class Factorial2 implements Callable<Integer> {
         int result = 1;
         for (int i = 1; i <= f; i++) {
             result *= i;
+            Thread.sleep(1000);
         }
         return result;
     }
