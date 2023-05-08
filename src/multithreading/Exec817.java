@@ -19,7 +19,7 @@ public class Exec817 {
 
         for (int i = 0; i < 10; i++) {
 
-            long from = valueDevidedBy10 * i + i;
+            long from = valueDevidedBy10 * i + 1;
             long to = valueDevidedBy10  * (i + 1);
 
             PartialSum partialSumTask = new PartialSum(from, to);
@@ -58,10 +58,12 @@ class PartialSum implements Callable<Long> {
 
     @Override
     public Long call() {
+//        System.out.println(Thread.currentThread().getName() + " starts work...");
         for (long i = from; i <= to; i++) {
             localSum += i;
         }
-        System.out.println("Sum from: " + from + " to " + to + " > " + localSum);
+        System.out.println(Thread.currentThread().getName() + " > Sum from: " + from + " to " + to + " > " + localSum);
+//        System.out.println(Thread.currentThread().getName() + " ends work...");
         return localSum;
     }
 }
