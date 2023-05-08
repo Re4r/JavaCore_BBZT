@@ -21,8 +21,15 @@ public class Exec817 {
         long valueDevidedBy10 = value / 10;
 
         for (int i = 0; i < 10; i++) {
+
             long from = valueDevidedBy10 * i + i;
             long to = valueDevidedBy10  * (i + 1);
+
+            PartialSum partialSumTask = new PartialSum(from, to);
+
+            Future<Long> longFuture = executorService.submit(partialSumTask);
+
+            futureList.add(longFuture);
         }
 
 
