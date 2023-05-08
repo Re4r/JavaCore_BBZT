@@ -2,10 +2,7 @@ package multithreading;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 public class Exec817 {
 
@@ -32,6 +29,19 @@ public class Exec817 {
             futureList.add(longFuture);
         }
 
+        for (Future<Long> future : futureList) {
+            try {
+                sum += future.get();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            } catch (ExecutionException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        executorService.shutdown();
+
+        System.out.println("Global sum: " + sum);
 
     }
 }
