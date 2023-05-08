@@ -31,4 +31,16 @@ class Playser extends Thread {
             System.out.println(Thread.currentThread().getName() + " > WINS");
         }
     }
+
+    @Override
+    public void run() {
+        Action reply;
+        for (Action action : actionList) {
+            try {
+                reply = actionExchanger.exchange(action);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }
