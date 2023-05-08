@@ -18,9 +18,33 @@ public class Exec819 {
             Thread.sleep(2000);
             System.out.println("Market Staff came to work...");
             countDownLatch.countDown();
-            System.out.println("cdl: " + countDownLatch);
+            System.out.println("CDL: " + countDownLatch);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
+    private static void everythingIsReady() {
+        try {
+            Thread.sleep(3000);
+            System.out.println("Everything is ready for openning...");
+            countDownLatch.countDown();
+            System.out.println("CDL: " + countDownLatch);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void openMarket() {
+        try {
+            Thread.sleep(4000);
+            System.out.println("Market is openned...");
+            countDownLatch.countDown();
+            System.out.println("CDL: " + countDownLatch);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
