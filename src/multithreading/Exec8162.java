@@ -3,8 +3,8 @@ package multithreading;
 import java.util.concurrent.*;
 
 public class Exec8162 {
-
     static int factorialResult;
+
     public static void main(String[] args) {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -25,11 +25,12 @@ public class Exec8162 {
             executorService.shutdown();
         }
 
+        System.out.println(factorialResult);
+
     }
 }
 
 class Factorial2 implements Callable<Integer> {
-
     private int f;
 
     public Factorial2(int f) {
@@ -38,14 +39,13 @@ class Factorial2 implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        if (f <= 0) {
-            throw new Exception("wrong number!");
-        } else {
-            int result = 1;
-            for (int i = 0; i <= f; i++) {
-                result *= i;
-            }
-            return result;
+
+        if (f <= 0) throw new Exception("wrong number!");
+
+        int result = 1;
+        for (int i = 1; i <= f; i++) {
+            result *= i;
         }
+        return result;
     }
 }
