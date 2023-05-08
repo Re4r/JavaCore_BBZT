@@ -11,7 +11,7 @@ public class Exec820 {
 
         List<Action> actionList1 = new ArrayList<>();
 
-        actionList1.add(Action.STONE);
+        actionList1.add(Action.SCISSORS);
         actionList1.add(Action.PAPPER);
         actionList1.add(Action.SCISSORS);
 
@@ -20,6 +20,11 @@ public class Exec820 {
         actionList2.add(Action.PAPPER);
         actionList2.add(Action.SCISSORS);
         actionList2.add(Action.STONE);
+
+        new Player(actionExchanger, actionList1).setName("first_player");
+        new Player(actionExchanger, actionList2).setName("second_player");
+
+
 
 
     }
@@ -31,23 +36,23 @@ enum Action {
     PAPPER
 }
 
-class Playser extends Thread {
+class Player extends Thread {
     private Exchanger<Action> actionExchanger;
     private List<Action> actionList;
 
-    public Playser(Exchanger<Action> actionExchanger, List<Action> actionList) {
+    public Player(Exchanger<Action> actionExchanger, List<Action> actionList) {
         this.actionExchanger = actionExchanger;
         this.actionList = actionList;
+        this.start();
     }
 
     private void whoWins(Action action, Action reply) {
+
         if ((action == Action.STONE && reply == Action.SCISSORS)
                 || (action == Action.SCISSORS && reply == Action.PAPPER)
                 || (action == Action.PAPPER && reply == Action.STONE)) {
 
             System.out.println(Thread.currentThread().getName() + " > WINS!!!");
-        } else {
-            System.out.println("NOBODY WINS...");
         }
     }
 
