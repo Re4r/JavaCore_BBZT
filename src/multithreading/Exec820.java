@@ -15,12 +15,20 @@ enum Action {
     PAPPER
 }
 
-class Playser {
+class Playser extends Thread {
     private Exchanger<Action> actionExchanger;
     private List<Action> actionList;
 
     public Playser(Exchanger<Action> actionExchanger, List<Action> actionList) {
         this.actionExchanger = actionExchanger;
         this.actionList = actionList;
+    }
+
+    private void whoWins(Action myAction, Action friendAction) {
+        if ((myAction == Action.STONE && friendAction == Action.SCISSORS)
+                || (myAction == Action.SCISSORS && friendAction == Action.PAPPER)
+                || (myAction == Action.PAPPER && friendAction == Action.STONE)) {
+            System.out.println(Thread.currentThread().getName() + " > WINS");
+        }
     }
 }
