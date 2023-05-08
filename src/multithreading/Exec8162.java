@@ -8,7 +8,9 @@ public class Exec8162 {
     public static void main(String[] args) {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
+
         Factorial2 factorial2 = new Factorial2(5);
+
         Future<Integer> future = executorService.submit(factorial2);
 
         try {
@@ -19,6 +21,8 @@ public class Exec8162 {
         } catch (ExecutionException e) {
             e.printStackTrace();
             System.out.println(e.getCause());
+        } finally {
+            executorService.shutdown();
         }
 
     }
