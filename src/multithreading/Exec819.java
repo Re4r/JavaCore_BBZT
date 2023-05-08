@@ -45,6 +45,22 @@ public class Exec819 {
             e.printStackTrace();
         }
     }
+}
 
+class Friend extends Thread {
+    private CountDownLatch countDownLatch;
 
+    public Friend(CountDownLatch countDownLatch) {
+        this.countDownLatch = countDownLatch;
+    }
+
+    @Override
+    public void run() {
+        try {
+            countDownLatch.await();
+            System.out.println(Thread.currentThread().getName() + " starts to buy something...");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
