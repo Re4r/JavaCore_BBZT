@@ -1,11 +1,21 @@
 package multithreading;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Semaphore;
 
 public class Exec818 {
     public static void main(String[] args) {
 
         Semaphore phoneBox = new Semaphore(2);
+
+        List<Person> personList = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            personList.add(new Person(phoneBox));
+        }
+
+        personList.forEach(Person::start);
 
     }
 }
@@ -26,7 +36,7 @@ class Person extends Thread {
             Thread.sleep(2000);
             System.out.println(Thread.currentThread().getName() + " Finished...");
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } finally {
             phoneBox.release();
         }
