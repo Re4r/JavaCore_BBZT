@@ -8,10 +8,21 @@ public class Exec822 {
 
         ArrayList<Integer> source = new ArrayList<>();
 
+        ArrayList<Integer> target = new ArrayList<>();
+
         for (int i = 0; i < 10; i++) {
             source.add(new Random().nextInt(100));
         }
 
         System.out.println(source);
+
+        Runnable runnable = () -> target.addAll(source);
+
+        Thread thread1 = new Thread(runnable);
+        Thread thread2 = new Thread(runnable);
+
+
+
+
     }
 }
