@@ -8,6 +8,7 @@ public class Exec825 {
 
         ArrayBlockingQueue<Integer> arrayBlockingQueue = new ArrayBlockingQueue<>(10);
 
+        // Producer
         new Thread(() -> {
             while (true) {
                 try {
@@ -17,6 +18,19 @@ public class Exec825 {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            }
+        }).start();
+
+        // Consumer
+        new Thread(() -> {
+            while (true) {
+                Integer x = null;
+                try {
+                    x = arrayBlockingQueue.take();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + " > took number: " + x);
             }
         }).start();
 
