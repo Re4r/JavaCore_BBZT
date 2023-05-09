@@ -1,6 +1,7 @@
 package multithreading;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Exec823 {
@@ -17,6 +18,25 @@ public class Exec823 {
         for (Map.Entry entry : hashMap.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                Iterator<Integer> iterator = hashMap.keySet().iterator();
+                while (iterator.hasNext()) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Integer i = iterator.next();
+                    System.out.println(i + " > " + hashMap.get(i));
+                }
+
+            }
+        };
+
+
 
 
     }
