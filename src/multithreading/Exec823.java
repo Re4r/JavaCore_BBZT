@@ -26,38 +26,30 @@ public class Exec823 {
 
         System.out.println("----------------------------------------------------");
 
-        Runnable runnable1 = new Runnable() {
-            @Override
-            public void run() {
-                Iterator<Integer> iterator = hashMap.keySet().iterator();
-                while (iterator.hasNext()) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    Integer i = iterator.next();
-                    System.out.println(i + " > " + hashMap.get(i) + " : " + Thread.currentThread().getName());
+        Runnable runnable1 = () -> {
+            for (Integer i : hashMap.keySet()) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                System.out.println("----------------------------------------------------");
+                System.out.println(i + " > " + hashMap.get(i) + " : " + Thread.currentThread().getName());
             }
+            System.out.println("----------------------------------------------------");
         };
 
-        Runnable runnable2 = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    entry.setValue("SSS");
-                    System.out.println(Thread.currentThread().getName() + " done operation");
-                }
-                System.out.println("----------------------------------------------------");
+        Runnable runnable2 = () -> {
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
+
+            for (Map.Entry entry : hashMap.entrySet()) {
+                entry.setValue("SSS");
+                System.out.println(Thread.currentThread().getName() + " done operation");
+            }
+            System.out.println("----------------------------------------------------");
         };
 
         ExecutorService executorService1 = Executors.newSingleThreadExecutor();
@@ -66,8 +58,7 @@ public class Exec823 {
         executorService1.execute(runnable1);
         executorService2.execute(runnable2);
 
-        executorService1.shutdown();
-        executorService2.shutdown();
+
 
         try {
             executorService1.awaitTermination(3, TimeUnit.SECONDS);
