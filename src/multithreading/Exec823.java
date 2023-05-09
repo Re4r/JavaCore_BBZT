@@ -24,6 +24,8 @@ public class Exec823 {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
+        System.out.println("----------------------------------------------------");
+
         Runnable runnable1 = new Runnable() {
             @Override
             public void run() {
@@ -35,9 +37,9 @@ public class Exec823 {
                         e.printStackTrace();
                     }
                     Integer i = iterator.next();
-                    System.out.println(i + " > " + hashMap.get(i));
+                    System.out.println(i + " > " + hashMap.get(i) + " : " + Thread.currentThread().getName());
                 }
-
+                System.out.println("----------------------------------------------------");
             }
         };
 
@@ -45,29 +47,31 @@ public class Exec823 {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
 
                 for (Map.Entry entry : hashMap.entrySet()) {
                     entry.setValue("SSS");
+                    System.out.println(Thread.currentThread().getName() + " done operation");
                 }
+                System.out.println("----------------------------------------------------");
             }
         };
 
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
         ExecutorService executorService1 = Executors.newSingleThreadExecutor();
+        ExecutorService executorService2 = Executors.newSingleThreadExecutor();
 
-        executorService.execute(runnable1);
-        executorService1.execute(runnable2);
+        executorService1.execute(runnable1);
+        executorService2.execute(runnable2);
 
-        executorService.shutdown();
         executorService1.shutdown();
+        executorService2.shutdown();
 
         try {
-            executorService.awaitTermination(3, TimeUnit.SECONDS);
             executorService1.awaitTermination(3, TimeUnit.SECONDS);
+            executorService2.awaitTermination(3, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -76,13 +80,9 @@ public class Exec823 {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
+        System.out.println("----------------------------------------------------");
+
         System.out.println(Thread.currentThread().getName() + " > " + " ENDS WORK");
-
-
-
-
-
-
 
     }
 }
