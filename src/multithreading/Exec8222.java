@@ -1,7 +1,9 @@
 package multithreading;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 public class Exec8222 {
     public static void main(String[] args) {
@@ -14,12 +16,16 @@ public class Exec8222 {
             arrayList.add(i);
         }
 
+        List<Integer> listSync = Collections.synchronizedList(arrayList);
+
         Runnable runnable1 = new Runnable() {
             @Override
             public void run() {
-                Iterator<Integer> integerIterator = arrayList.iterator();
-                while (integerIterator.hasNext()) {
-                    System.out.println(integerIterator.next());
+                synchronized (listSync) {
+                    Iterator<Integer> integerIterator = listSync.iterator();
+                    while (integerIterator.hasNext()) {
+                        System.out.println(integerIterator.next());
+                    }
                 }
             }
         };
@@ -27,10 +33,12 @@ public class Exec8222 {
         Runnable runnable2 = new Runnable() {
             @Override
             public void run() {
-                Iterator<Integer> iterator = arrayList.iterator();
-                while (iterator.hasNext()) {
-                    if (iterator.next() % 2 == 0) {
-                        iterator.remove();
+                synchronized (listSync) {
+                    Iterator<Integer> iterator = listSync.iterator();
+                    while (iterator.hasNext()) {
+                        if (iterator.next() % 2 == 0) {
+                            iterator.remove();
+                        }
                     }
                 }
             }
@@ -49,6 +57,7 @@ public class Exec8222 {
             e.printStackTrace();
         }
 
+        System.out.println(listSync);
         System.out.println(arrayList);
         System.out.println(Thread.currentThread().getName() + " > ENDS WORK");
 
