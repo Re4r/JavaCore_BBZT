@@ -6,6 +6,8 @@ import java.util.Iterator;
 public class Exec8222 {
     public static void main(String[] args) {
 
+        System.out.println(Thread.currentThread().getName() + " > STARTS WORK...");
+
         ArrayList<Integer> arrayList = new ArrayList<>();
 
         for (int i = 0; i < 1000; i++) {
@@ -46,6 +48,9 @@ public class Exec8222 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        System.out.println(arrayList);
+        System.out.println(Thread.currentThread().getName() + " > ENDS WORK");
 
 
     }
