@@ -19,7 +19,7 @@ public class Exec823 {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
-        Runnable runnable = new Runnable() {
+        Runnable runnable1 = new Runnable() {
             @Override
             public void run() {
                 Iterator<Integer> iterator = hashMap.keySet().iterator();
@@ -33,6 +33,21 @@ public class Exec823 {
                     System.out.println(i + " > " + hashMap.get(i));
                 }
 
+            }
+        };
+
+        Runnable runnable2 = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    entry.setValue("SSS");
+                }
             }
         };
 
