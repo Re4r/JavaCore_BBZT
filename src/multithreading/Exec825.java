@@ -12,9 +12,11 @@ public class Exec825 {
         new Thread(() -> {
             while (true) {
                 try {
-                    arrayBlockingQueue.put(new Random().nextInt(100));
-                    System.out.println(Thread.currentThread().getName() + " > put number");
-                    Thread.sleep(1000);
+                    Integer x = new Random().nextInt(100);
+                    arrayBlockingQueue.put(x);
+                    System.out.println(Thread.currentThread().getName() + " > put number: " + x);
+                    System.out.println("------------------------------------------------");
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -24,13 +26,14 @@ public class Exec825 {
         // Consumer
         new Thread(() -> {
             while (true) {
-                Integer x = null;
                 try {
-                    x = arrayBlockingQueue.take();
+                    Integer x = arrayBlockingQueue.take();
+                    System.out.println(Thread.currentThread().getName() + " > took number: " + x);
+                    System.out.println("------------------------------------------------");
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + " > took number: " + x);
             }
         }).start();
 
