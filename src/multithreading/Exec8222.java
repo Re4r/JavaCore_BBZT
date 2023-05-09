@@ -12,7 +12,7 @@ public class Exec8222 {
 
         ArrayList<Integer> arrayList = new ArrayList<>();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             arrayList.add(i);
         }
 
@@ -21,18 +21,21 @@ public class Exec8222 {
         Runnable runnable1 = new Runnable() {
             @Override
             public void run() {
+                System.out.println(Thread.currentThread().getName() + " > starts work...");
                 synchronized (listSync) {
                     Iterator<Integer> integerIterator = listSync.iterator();
                     while (integerIterator.hasNext()) {
-                        System.out.println(integerIterator.next());
+                        System.out.println(Thread.currentThread().getName() + " : " + integerIterator.next());
                     }
                 }
+                System.out.println(Thread.currentThread().getName() + " > ends work...");
             }
         };
 
         Runnable runnable2 = new Runnable() {
             @Override
             public void run() {
+                System.out.println(Thread.currentThread().getName() + " > starts work...");
                 synchronized (listSync) {
                     Iterator<Integer> iterator = listSync.iterator();
                     while (iterator.hasNext()) {
@@ -41,6 +44,7 @@ public class Exec8222 {
                         }
                     }
                 }
+                System.out.println(Thread.currentThread().getName() + " > ends work...");
             }
         };
 
