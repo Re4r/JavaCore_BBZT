@@ -1,8 +1,7 @@
 package multithreading;
 
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -12,13 +11,14 @@ public class Exec823 {
 
         System.out.println(Thread.currentThread().getName() + " > " + " ENDS WORK");
 
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        ConcurrentHashMap<Integer, String> hashMap = new ConcurrentHashMap<>();
 
         hashMap.put(1, "AAA");
         hashMap.put(2, "BBB");
         hashMap.put(3, "CCC");
         hashMap.put(4, "DDD");
         hashMap.put(5, "EEE");
+        hashMap.put(6, "FFF");
 
         for (Map.Entry entry : hashMap.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
@@ -52,8 +52,8 @@ public class Exec823 {
             System.out.println("----------------------------------------------------");
         };
 
-        ExecutorService executorService1 = Executors.newSingleThreadExecutor();
-        ExecutorService executorService2 = Executors.newSingleThreadExecutor();
+        ExecutorService executorService1 = Executors.newFixedThreadPool(3);
+        ExecutorService executorService2 = Executors.newFixedThreadPool(3);
 
         executorService1.execute(runnable1);
         executorService2.execute(runnable2);
@@ -61,8 +61,8 @@ public class Exec823 {
 
 
         try {
-            executorService1.awaitTermination(3, TimeUnit.SECONDS);
-            executorService2.awaitTermination(3, TimeUnit.SECONDS);
+            executorService1.awaitTermination(1, TimeUnit.SECONDS);
+            executorService2.awaitTermination(1, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
