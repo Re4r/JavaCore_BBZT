@@ -3,9 +3,14 @@ package multithreading;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Exec823 {
     public static void main(String[] args) {
+
+        System.out.println(Thread.currentThread().getName() + " > " + " ENDS WORK");
 
         HashMap<Integer, String> hashMap = new HashMap<>();
 
@@ -50,6 +55,31 @@ public class Exec823 {
                 }
             }
         };
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        ExecutorService executorService1 = Executors.newSingleThreadExecutor();
+
+        executorService.execute(runnable1);
+        executorService1.execute(runnable2);
+
+        executorService.shutdown();
+        executorService1.shutdown();
+
+        try {
+            executorService.awaitTermination(3, TimeUnit.SECONDS);
+            executorService1.awaitTermination(3, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        for (Map.Entry entry : hashMap.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+        System.out.println(Thread.currentThread().getName() + " > " + " ENDS WORK");
+
+
+
 
 
 
