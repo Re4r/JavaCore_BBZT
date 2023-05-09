@@ -1,14 +1,18 @@
 package multithreading;
 
-public class Exec821 {
-    private static int counter;
+import java.util.concurrent.atomic.AtomicInteger;
 
-    public static int getCounter() {
+public class Exec821 {
+
+//    private static int counter;
+    private static AtomicInteger counter = new AtomicInteger();
+
+    public static AtomicInteger getCounter() {
         return counter;
     }
 
-    static synchronized void increment() {
-        counter++;
+    static void increment() {
+        counter.incrementAndGet();
     }
 
     public static void main(String[] args) {
