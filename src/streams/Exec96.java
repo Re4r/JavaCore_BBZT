@@ -37,7 +37,7 @@ public class Exec96 {
                 System.out.println(dataInputStream.readDouble());
             }
 
-            System.out.println(" >>> completed");
+            System.out.println(" >>>>> completed");
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
