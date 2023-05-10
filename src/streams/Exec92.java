@@ -8,6 +8,13 @@ public class Exec92 {
 
         try (FileReader fileReader = new FileReader("dest.txt")) {
 
+            int character;
+            while((character = fileReader.read()) != -1) {
+                System.out.println((char) character);
+            }
+            System.out.println("------------------");
+            System.out.println("Operation Complete");
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
