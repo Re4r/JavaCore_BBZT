@@ -33,9 +33,6 @@ public class Exec95 {
 
             System.out.println(" >>> completed");
 
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
