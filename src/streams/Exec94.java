@@ -8,13 +8,11 @@ public class Exec94 {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("dest.txt"));
              BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("dest2.txt"))) {
 
-                while (bufferedReader.ready()) {
-                    bufferedWriter.write(bufferedReader.read());
-                }
+            while (bufferedReader.ready()) {
+                bufferedWriter.write(bufferedReader.read());
+            }
 
             System.out.println(" >>> Operation Complete");
-
-
 
         } catch (IOException e) {
             throw new RuntimeException(e);
