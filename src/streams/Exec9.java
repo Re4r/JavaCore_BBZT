@@ -37,7 +37,7 @@ public class Exec9 {
                 Sorkvi Aderthad
                 """;
 
-        String source2 = "AAAAAAAAAAAAAAAAAAAAA";
+        String source2 = "FINAL_OF_THE_LIST";
 
         try (FileWriter fileWriter = new FileWriter("dest.txt", true)) {
 
