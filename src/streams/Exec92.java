@@ -10,10 +10,10 @@ public class Exec92 {
 
             int character;
             while((character = fileReader.read()) != -1) {
-                System.out.println((char) character);
+                System.out.print((char) character);
             }
-            System.out.println("------------------");
-            System.out.println("Operation Complete");
+            System.out.println();
+            System.out.println(" >>> Operation Complete");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
