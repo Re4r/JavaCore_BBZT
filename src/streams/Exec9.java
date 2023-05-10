@@ -37,15 +37,21 @@ public class Exec9 {
                 Sorkvi Aderthad
                 """;
 
-        try (FileWriter fileWriter = new FileWriter("D:\\lessonZT\\test.txt")) {
-            for (int i = 0; i < source.length(); i++) {
-                fileWriter.write(source.charAt(i));
-            }
-            System.out.println("DONE");
+        String source2 = "AAAAAAAAAAAAAAAAAAAAA";
+
+        try (FileWriter fileWriter = new FileWriter("dest.txt", true)) {
+
+//            for (int i = 0; i < source.length(); i++) {
+//                fileWriter.write(source.charAt(i));
+//            }
+
+            fileWriter.write(source);
+            fileWriter.write(source2);
+
+            System.out.println(" > DONE");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }
