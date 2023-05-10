@@ -11,9 +11,13 @@ public class Exec95 {
         try (FileInputStream fileInputStream =
                      new FileInputStream("C:\\Users\\re4r\\OneDrive\\Рабочий стол\\TEMP\\testpict.jpg");
              FileOutputStream fileOutputStream =
-                     new FileOutputStream("destpict.jpg")) {
+                     new FileOutputStream("destpict.jpeg")) {
+            int i;
+            while ((i = fileInputStream.read()) != -1) {
+                fileOutputStream.write(i);
+            }
 
-
+            System.out.println(" >>> complete");
 
 
         } catch (IOException e) {
