@@ -1,15 +1,31 @@
 package streams;
 
-import java.io.DataOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class Exec96 {
     public static void main(String[] args) {
 
         try (DataOutputStream dataOutputStream =
-                     new DataOutputStream(new FileOutputStream("my_test.bin"))) {
+                     new DataOutputStream(new FileOutputStream("my_test.bin"));
+             DataInputStream dataInputStream =
+                     new DataInputStream(new FileInputStream("my_test.bin"))) {
+
+            for (int i = 0; i < 10; i++) {
+                dataOutputStream.writeBoolean(true);
+                dataOutputStream.writeByte(i);
+                dataOutputStream.writeChar(i);
+                dataOutputStream.writeDouble(i);
+                dataOutputStream.writeFloat(i);
+                dataOutputStream.writeInt(i);
+                dataOutputStream.writeShort(i);
+                dataOutputStream.writeLong(i);
+            }
+
+            while (dataInputStream.read() != -1) {
+                System.out.print(" " + dataInputStream.read());
+            }
+
+            System.out.println(" >>> completed");
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
