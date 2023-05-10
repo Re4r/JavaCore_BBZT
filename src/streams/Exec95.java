@@ -5,7 +5,7 @@ import java.io.*;
 public class Exec95 {
     public static void main(String[] args) {
 
-//        try (FileInputStream fileInputStream =
+//        try (FileInputStream = fileInputStream
 //                     new FileInputStream("C:\\Users\\re4r\\OneDrive\\Рабочий стол\\TEMP\\testpict.jpg");
 //             FileOutputStream fileOutputStream =
 //                     new FileOutputStream("destpict.jpeg")) {
