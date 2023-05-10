@@ -37,16 +37,13 @@ public class Exec9 {
                 Sorkvi Aderthad
                 """;
 
-        try {
-            FileWriter fileWriter = new FileWriter("D:\\lessonZT\\test.txt");
-
-            for (int i = 0; i < source.length() ; i++) {
+        try (FileWriter fileWriter = new FileWriter("D:\\lessonZT\\test.txt")) {
+            for (int i = 0; i < source.length(); i++) {
                 fileWriter.write(source.charAt(i));
             }
-
             System.out.println("DONE");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
 
