@@ -13,6 +13,13 @@ public class Exec911 {
             try (FileChannel channel = file.getChannel()) {
 
                 ByteBuffer buffer = ByteBuffer.allocate(25);
+                StringBuilder heroes = new StringBuilder();
+
+                int byteRead = channel.read(buffer);
+                while (byteRead > 0) {
+                    System.out.println("Read > " + byteRead);
+                    buffer.flip();
+                }
 
 
             }
