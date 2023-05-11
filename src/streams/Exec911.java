@@ -19,6 +19,9 @@ public class Exec911 {
                 while (byteRead > 0) {
                     System.out.println("Read > " + byteRead);
                     buffer.flip();
+                    while (buffer.hasRemaining()) {
+                        heroes.append((char) buffer.get());
+                    }
                 }
 
 
