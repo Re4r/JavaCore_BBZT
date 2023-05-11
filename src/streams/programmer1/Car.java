@@ -1,6 +1,8 @@
 package streams.programmer1;
 
-public class Car {
+import java.io.Serializable;
+
+public class Car implements Serializable {
     private String model;
     private String color;
 
