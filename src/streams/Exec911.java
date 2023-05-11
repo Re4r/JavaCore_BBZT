@@ -17,7 +17,6 @@ public class Exec911 {
                 StringBuilder heroes = new StringBuilder();
 
                 int byteRead = channel.read(buffer);
-
                 while (byteRead > 0) {
 
                     System.out.println("Read > " + byteRead);
