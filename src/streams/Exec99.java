@@ -19,6 +19,12 @@ public class Exec99 {
             System.out.println(s2);
             System.out.println("-----------------------");
             System.out.println(randomAccessFile.getFilePointer());
+            System.out.println("-----------------------");
+            randomAccessFile.seek(randomAccessFile.length());
+            randomAccessFile.writeBytes("Final Point");
+            System.out.println(randomAccessFile.length());
+            System.out.println("-----------------------");
+
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
