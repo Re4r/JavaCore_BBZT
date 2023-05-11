@@ -3,6 +3,7 @@ package streams.programmer1;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
+    static final long serialVersionUID = 3;
     private String name;
     private String surname;
     private transient int age;
