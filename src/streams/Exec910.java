@@ -44,9 +44,16 @@ public class Exec910 {
         file3.createNewFile();
         new File("D:\\FileTest\\C\\dest5.txt").createNewFile();
         new File("D:\\FileTest\\C\\dest6.txt").createNewFile();
+        new File("D:\\FileTest\\C\\POI").mkdir();
         File[] files = folder3.listFiles();
         System.out.println(Arrays.toString(files));
         System.out.println("------------------------");
+        System.out.println(file.isHidden());
+        System.out.println(file.canRead());
+        System.out.println(file.canWrite());
+        System.out.println(file.canExecute());
+        System.out.println("------------------------");
+
 
 
 
