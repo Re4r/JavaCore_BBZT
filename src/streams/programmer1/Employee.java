@@ -1,12 +1,14 @@
 package streams.programmer1;
 
-public class Employees {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     private String name;
     private int age;
     private double salary;
     private String department;
 
-    public Employees(String name, int age, double salary, String department) {
+    public Employee(String name, int age, double salary, String department) {
         this.name = name;
         this.age = age;
         this.salary = salary;
