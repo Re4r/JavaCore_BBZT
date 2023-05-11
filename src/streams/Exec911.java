@@ -12,18 +12,27 @@ public class Exec911 {
         try (RandomAccessFile file = new RandomAccessFile("dest.txt", "rw")) {
             try (FileChannel channel = file.getChannel()) {
 
-                ByteBuffer buffer = ByteBuffer.allocate(25);
+                ByteBuffer buffer = ByteBuffer.allocate(10);
+
                 StringBuilder heroes = new StringBuilder();
 
                 int byteRead = channel.read(buffer);
+
                 while (byteRead > 0) {
                     System.out.println("Read > " + byteRead);
+
                     buffer.flip();
+
                     while (buffer.hasRemaining()) {
                         heroes.append((char) buffer.get());
                     }
+
+                    buffer.clear();
+
+                    byteRead = channel.read(buffer);
                 }
 
+                System.out.println(heroes);
 
             }
         } catch (FileNotFoundException e) {
@@ -31,6 +40,5 @@ public class Exec911 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
