@@ -17,7 +17,7 @@ public class SerializationEx2 {
 
             objectOutputStream.writeObject(employee);
 
-            System.out.println(" >>> operation complete");
+            System.out.println(" >>> serialization complete");
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
