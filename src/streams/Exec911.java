@@ -36,11 +36,14 @@ public class Exec911 {
 
                 String text = "\nAAAAAAAAAA" + "\nXXXXXXXXXX";
 
-                ByteBuffer buffer1 = ByteBuffer.allocate(text.getBytes().length);
+//                ByteBuffer buffer1 = ByteBuffer.allocate(text.getBytes().length);
+//
+//                buffer1.put(text.getBytes());
+//                buffer1.flip();
+//                channel.write(buffer1);
 
-                buffer1.put(text.getBytes());
-                buffer1.flip();
-                channel.write(buffer1);
+                ByteBuffer buffer2 = ByteBuffer.wrap(text.getBytes());
+                channel.write(buffer2);
 
             }
         } catch (FileNotFoundException e) {
