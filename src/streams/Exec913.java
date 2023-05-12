@@ -37,6 +37,37 @@ public class Exec913 {
                 System.out.print((char) buffer.get());
             }
             System.out.println("----------------------------");
+            buffer.compact();
+            channel.read(buffer);
+            buffer.flip();
+            while (buffer.hasRemaining()) {
+                System.out.print((char) buffer.get());
+            }
+            System.out.println("----------------------------");
+            buffer.clear();
+            channel.read(buffer);
+            buffer.flip();
+            while (buffer.hasRemaining()) {
+                System.out.print((char) buffer.get());
+            }
+            System.out.println();
+            System.out.println("----------------------------");
+            buffer.mark();
+            while (buffer.hasRemaining()) {
+                System.out.print((char) buffer.get());
+            }
+            System.out.println();
+            System.out.println("----------------------------");
+            buffer.reset();
+            while (buffer.hasRemaining()) {
+                System.out.print((char) buffer.get());
+            }
+            System.out.println();
+            System.out.println("----------------------------");
+
+
+
+
 
 
         } catch (FileNotFoundException e) {
