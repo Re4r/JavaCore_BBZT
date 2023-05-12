@@ -38,7 +38,9 @@ public class Exec911 {
 
                 ByteBuffer buffer1 = ByteBuffer.allocate(text.getBytes().length);
 
-
+                buffer1.put(text.getBytes());
+                buffer1.flip();
+                channel.write(buffer1);
 
             }
         } catch (FileNotFoundException e) {
