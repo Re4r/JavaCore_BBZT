@@ -12,29 +12,31 @@ public class Exec914 {
         Path directoryPath = Paths.get("D:\\FileTest\\M");
         Path anotherPath = Paths.get("D:\\FileTest\\M\\N\\O\\P\\test20.txt");
 
-        System.out.println("-------------------------------");
-        System.out.println(filePath.getFileName());
-        System.out.println(directoryPath.getFileName());
-        System.out.println("-------------------------------");
-        System.out.println(filePath.getParent());
-        System.out.println(directoryPath.getParent());
-        System.out.println("-------------------------------");
-        System.out.println(filePath.getRoot());
-        System.out.println(directoryPath.getRoot());
-        System.out.println("-------------------------------");
-        System.out.println(filePath.isAbsolute());
-        System.out.println(directoryPath.isAbsolute());
-        System.out.println("-------------------------------");
-        System.out.println(filePath.toAbsolutePath());
-        System.out.println(directoryPath.toAbsolutePath());
-        System.out.println("-------------------------------");
-        System.out.println(filePath.toAbsolutePath().getParent());
-        System.out.println(filePath.toAbsolutePath().getRoot());
-        System.out.println("-------------------------------");
-        System.out.println(directoryPath.resolve(filePath));
-        System.out.println("-------------------------------");
-        System.out.println(directoryPath.relativize(anotherPath));
-        System.out.println("-------------------------------");
+        // Interface Path
+
+//        System.out.println("-------------------------------");
+//        System.out.println(filePath.getFileName());
+//        System.out.println(directoryPath.getFileName());
+//        System.out.println("-------------------------------");
+//        System.out.println(filePath.getParent());
+//        System.out.println(directoryPath.getParent());
+//        System.out.println("-------------------------------");
+//        System.out.println(filePath.getRoot());
+//        System.out.println(directoryPath.getRoot());
+//        System.out.println("-------------------------------");
+//        System.out.println(filePath.isAbsolute());
+//        System.out.println(directoryPath.isAbsolute());
+//        System.out.println("-------------------------------");
+//        System.out.println(filePath.toAbsolutePath());
+//        System.out.println(directoryPath.toAbsolutePath());
+//        System.out.println("-------------------------------");
+//        System.out.println(filePath.toAbsolutePath().getParent());
+//        System.out.println(filePath.toAbsolutePath().getRoot());
+//        System.out.println("-------------------------------");
+//        System.out.println(directoryPath.resolve(filePath));
+//        System.out.println("-------------------------------");
+//        System.out.println(directoryPath.relativize(anotherPath));
+//        System.out.println("-------------------------------");
 
         // Class Files
 
@@ -53,6 +55,10 @@ public class Exec914 {
                 throw new RuntimeException(e);
             }
         }
+
+
+
+
 
 
 
