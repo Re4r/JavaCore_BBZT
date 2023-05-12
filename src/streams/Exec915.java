@@ -25,7 +25,7 @@ public class Exec915 {
 
 //        Files.copy(directoryPath2, directoryPath.resolve("B"));
 //        Files.move(filePath, directoryPath2.resolve("test15.txt"));
-        Files.move(filePath2, directoryPath2.resolve("test17.txt"));
+//        Files.move(filePath2, directoryPath2.resolve("test17.txt"));
 
 
     }
