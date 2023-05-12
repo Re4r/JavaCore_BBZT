@@ -12,15 +12,22 @@ public class Exec913 {
         try (RandomAccessFile file = new RandomAccessFile("dest.txt", "r");
              FileChannel channel = file.getChannel()) {
 
-            ByteBuffer buffer;
-            buffer = ByteBuffer.allocate(Math.toIntExact(file.length()));
+//            ByteBuffer buffer;
+//            buffer = ByteBuffer.allocate(Math.toIntExact(file.length()));
+//
+//            channel.read(buffer);
+//
+//            buffer.flip();
+//
+//            while (buffer.hasRemaining()) {
+//                System.out.print((char) buffer.get());
+//            }
 
+            ByteBuffer buffer = ByteBuffer.allocate(10);
             channel.read(buffer);
-
             buffer.flip();
-
-            while (buffer.hasRemaining()) {
-                System.out.print((char) buffer.get());
+            for (int i = 0; i < 10; i++) {
+                System.out.println((char) buffer.get());
             }
 
         } catch (FileNotFoundException e) {
