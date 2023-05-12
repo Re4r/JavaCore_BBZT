@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 
 public class Exec914 {
     public static void main(String[] args) {
@@ -75,6 +76,30 @@ public class Exec914 {
             throw new RuntimeException(e);
         }
         System.out.println("-------------------------------");
+        try {
+            System.out.println(Files.getAttribute(filePath, "creationTime"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("-------------------------------");
+        try {
+            System.out.println(Files.readAttributes(filePath, "*"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("-------------------------------");
+
+        Map<String, Object> stringObjectMap = null;
+        try {
+            stringObjectMap = Files.readAttributes(filePath2, "*");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        for (Map.Entry<String, Object> entry : stringObjectMap.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+        System.out.println("-------------------------------");
+
 
 
 
