@@ -56,11 +56,18 @@ public class Exec914 {
             }
         }
 
-
-
-
-
-
+        System.out.println("-------------------------------");
+        System.out.println(Files.isReadable(filePath));
+        System.out.println(Files.isReadable(filePath));
+        System.out.println(Files.isExecutable(filePath));
+        System.out.println("-------------------------------");
+        Path filePath2 = Paths.get("C:\\JavaRush\\JavaCore\\JCBBZT\\test15.txt");
+        try {
+            System.out.println(Files.isSameFile(filePath, filePath2));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("-------------------------------");
 
 
     }
