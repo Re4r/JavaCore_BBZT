@@ -1,5 +1,7 @@
 package streams;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -31,6 +33,28 @@ public class Exec914 {
         System.out.println("-------------------------------");
         System.out.println(directoryPath.resolve(filePath));
         System.out.println("-------------------------------");
+        System.out.println(directoryPath.relativize(anotherPath));
+        System.out.println("-------------------------------");
+
+        // Class Files
+
+        if (!Files.exists(filePath)) {
+            try {
+                Files.createFile(filePath);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        if (Files.exists(directoryPath)) {
+            try {
+                Files.createDirectory(directoryPath);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
 
 
     }
