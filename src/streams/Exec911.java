@@ -34,6 +34,12 @@ public class Exec911 {
 
                 System.out.println(heroes);
 
+                String text = "\nAAAAAAAAAA" + "\nXXXXXXXXXX";
+
+                ByteBuffer buffer1 = ByteBuffer.allocate(text.getBytes().length);
+
+
+
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
