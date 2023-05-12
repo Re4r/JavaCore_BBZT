@@ -23,12 +23,21 @@ public class Exec913 {
 //                System.out.print((char) buffer.get());
 //            }
 
+            System.out.println("----------------------------");
+
             ByteBuffer buffer = ByteBuffer.allocate(10);
             channel.read(buffer);
             buffer.flip();
             for (int i = 0; i < 10; i++) {
-                System.out.println((char) buffer.get());
+                System.out.print((char) buffer.get());
             }
+            System.out.println("----------------------------");
+            buffer.rewind();
+            for (int i = 0; i < 10; i++) {
+                System.out.print((char) buffer.get());
+            }
+            System.out.println("----------------------------");
+
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
