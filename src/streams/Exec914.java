@@ -1,5 +1,6 @@
 package streams;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -68,6 +69,13 @@ public class Exec914 {
             throw new RuntimeException(e);
         }
         System.out.println("-------------------------------");
+        try {
+            System.out.println(Files.size(filePath));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("-------------------------------");
+
 
 
     }
