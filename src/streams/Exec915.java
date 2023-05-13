@@ -27,6 +27,9 @@ public class Exec915 {
 //        Files.move(filePath, directoryPath2.resolve("test15.txt"));
 //        Files.move(filePath2, directoryPath2.resolve("test17.txt"));
 
+//        Files.delete(Paths.get("D:\\FileTest\\MFL\\test15.txt"));
+        Files.deleteIfExists(Paths.get("D:\\FileTest\\MFL\\B"));
+
 
     }
 }
