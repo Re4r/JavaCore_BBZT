@@ -1,10 +1,8 @@
 package streams;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
+import java.util.List;
 
 public class Exec915 {
     public static void main(String[] args) throws IOException {
@@ -31,9 +29,15 @@ public class Exec915 {
 //        Files.deleteIfExists(Paths.get("D:\\FileTest\\MFL\\B"));
 
         Path filePath = Paths.get("test10.txt");
-        Files.createFile(filePath);
-        String s = "AQAQAQAQAQAQA";
-        Files.write(filePath, s.getBytes());
+
+//        Files.createFile(filePath);
+
+            String s = "AQAQAQAQAQAQA";
+            Files.write(filePath, s.getBytes());
+
+        List<String> stringList = Files.readAllLines(filePath);
+
+        System.out.println(stringList);
 
 
     }
