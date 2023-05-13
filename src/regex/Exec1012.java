@@ -6,9 +6,9 @@ import java.util.regex.Pattern;
 public class Exec1012 {
     public static void main(String[] args) {
 
-        String s = "ABCDABCFABCGABCRABCDABCD";
+        String s = "ABCDABCFA4357B1CGABCRABCDABCD83484JAERTY89054321QWERTYZVXBC";
 
-        Pattern pattern = Pattern.compile("B[A-C]D");
+        Pattern pattern = Pattern.compile("ABC[D|F]");
         Matcher matcher = pattern.matcher(s);
 
         while (matcher.find()) {
