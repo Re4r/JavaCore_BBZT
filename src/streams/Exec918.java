@@ -10,15 +10,19 @@ public class Exec918 {
         Path path = Paths.get("D:\\FileTest\\DEST");
 
 
-        SimpleFileVisitor simpleFileVisitor = new SimpleFileVisitor() {
+        SimpleFileVisitor<Path> simpleFileVisitor = new SimpleFileVisitor<Path>() {
             @Override
-            public FileVisitResult visitFile(Object file, BasicFileAttributes attrs) throws IOException {
-                return super.visitFile(file, attrs);
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                System.out.println("Delete file >>> " + file.getFileName());
+                Files.delete(file);
+                return FileVisitResult.CONTINUE;
             }
 
             @Override
-            public FileVisitResult postVisitDirectory(Object dir, IOException exc) throws IOException {
-                return super.postVisitDirectory(dir, exc);
+            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                System.out.println("Delete directory >>> " + dir.getFileName());
+                Files.delete(dir);
+                return FileVisitResult.CONTINUE;
             }
         };
 
