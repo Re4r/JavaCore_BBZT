@@ -5,7 +5,7 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
 public class Exec918 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Path path = Paths.get("D:\\FileTest\\DEST");
 
@@ -25,6 +25,8 @@ public class Exec918 {
                 return FileVisitResult.CONTINUE;
             }
         };
+
+        Files.walkFileTree(path, simpleFileVisitor);
 
     }
 }
