@@ -8,11 +8,11 @@ public class Exec1012 {
 
         String s = "ABCDABCFABCGABCRABCDABCD";
 
-        Pattern pattern = Pattern.compile("ABC");
+        Pattern pattern = Pattern.compile("B[A-C]D");
         Matcher matcher = pattern.matcher(s);
 
         while (matcher.find()) {
-            System.out.println(matcher.group());
+            System.out.println(matcher.group() + " : " + matcher.start());
         }
     }
 }
