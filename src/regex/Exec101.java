@@ -14,7 +14,8 @@ public class Exec101 {
                 +"Chuck Norris, USA, Hollywood, All stars street, 87, Flat 21," +
                 "email: chuck@gmail.com, Postcode: USA23, Phone Number: +136478952.";
 
-        Pattern pattern = Pattern.compile("\\w+");
+//        Pattern pattern = Pattern.compile("\\w+");
+        Pattern pattern = Pattern.compile("\\d{2}");
         Matcher matcher = pattern.matcher(s);
         while (matcher.find()) {
             System.out.println(matcher.group());
