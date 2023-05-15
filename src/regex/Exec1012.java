@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 public class Exec1012 {
     public static void main(String[] args) {
 
-        String s = "ABCDABCFA4357B1CGABCRABCDABCD83484JAERTY89054321QWERTYZVXBC"
-                + "AJKDSBDHBH435GHJBJHVDGVSG0004HJGYUGYUVJHDVH465877HFBCV32872";
+        String s = "ABCDAB^&*$CFA4357B1CGABCRABCDA!BCD834&*%$84JAERTY89054321QWERTYZVXBC"
+                + "AJKDSBDHBH435GHJBJH===VDGVSG0004HJGYUGYUVJ@@@@HDVH465877HFBCV32872";
 
-        Pattern pattern = Pattern.compile("[0-9]");
+        Pattern pattern = Pattern.compile("\\W{3}");
         Matcher matcher = pattern.matcher(s);
 
         while (matcher.find()) {
