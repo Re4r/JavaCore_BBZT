@@ -1,5 +1,8 @@
 package regex;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Exec101 {
     public static void main(String[] args) {
 
@@ -11,6 +14,11 @@ public class Exec101 {
                 +"Chuck Norris, USA, Hollywood, All stars street, 87, Flat 21," +
                 "email: chuck@gmail.com, Postcode: USA23, Phone Number: +136478952.";
 
+        Pattern pattern = Pattern.compile("\\w+");
+        Matcher matcher = pattern.matcher(s);
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
 
 
     }
