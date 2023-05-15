@@ -15,7 +15,8 @@ public class Exec101 {
                 "email: chuck@gmail.com, Postcode: USA23, Phone Number: +136478952.";
 
 //        Pattern pattern = Pattern.compile("\\w+");
-        Pattern pattern = Pattern.compile("\\d{2}");
+//        Pattern pattern = Pattern.compile("\\b\\d{2}\\b");
+        Pattern pattern = Pattern.compile("\\+\\d{9}");
         Matcher matcher = pattern.matcher(s);
         while (matcher.find()) {
             System.out.println(matcher.group());
