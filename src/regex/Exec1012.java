@@ -9,7 +9,7 @@ public class Exec1012 {
         String s = "ABCDABCFA4357B1CGABCRABCDABCD83484JAERTY89054321QWERTYZVXBC"
                 + "AJKDSBDHBH435GHJBJHVDGVSG0004HJGYUGYUVJHDVH465877HFBCV32872";
 
-        Pattern pattern = Pattern.compile("ABC.");
+        Pattern pattern = Pattern.compile("[0-9]");
         Matcher matcher = pattern.matcher(s);
 
         while (matcher.find()) {
