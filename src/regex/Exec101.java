@@ -16,7 +16,8 @@ public class Exec101 {
 
 //        Pattern pattern = Pattern.compile("\\w+");
 //        Pattern pattern = Pattern.compile("\\b\\d{2}\\b");
-        Pattern pattern = Pattern.compile("\\+\\d{9}");
+//        Pattern pattern = Pattern.compile("\\+\\d{9}");
+        Pattern pattern = Pattern.compile("\\w+@\\w+\\.(ru|com)");
         Matcher matcher = pattern.matcher(s);
         while (matcher.find()) {
             System.out.println(matcher.group());
