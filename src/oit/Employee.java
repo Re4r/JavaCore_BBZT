@@ -30,4 +30,19 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    private void changeDepartment(String newDepartment) {
+        department = newDepartment;
+        System.out.println("New Department >>> " + department);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }
