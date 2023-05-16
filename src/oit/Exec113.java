@@ -14,9 +14,16 @@ public class Exec113 {
 
         try (Scanner scanner = new Scanner(new FileReader("dest2.txt"))) {
 
+//            scanner.useDelimiter(" ");
+            while (scanner.hasNext()) {
+                stringSet.add(scanner.nextLine());
+            }
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        System.out.println(stringSet);
 
 
     }
