@@ -40,6 +40,20 @@ public class ExecRef115 {
             Method method2 = employeeClass.getMethod("increaseSalary");
             System.out.printf("%s : %s%n", method1.getReturnType(), Arrays.toString(method1.getParameterTypes()));
             System.out.printf("%s : %s%n", method2.getReturnType(), Arrays.toString(method2.getParameterTypes()));
+            System.out.println("--------------------------------------");
+
+            Method [] methods = employeeClass.getDeclaredMethods();
+            Method [] methods1 = employeeClass.getMethods();
+
+            for (Method method : methods) {
+                System.out.println(method);
+            }
+            System.out.println("--------------------------------------");
+
+            for (Method method : methods1) {
+                System.out.println(method);
+            }
+            System.out.println("--------------------------------------");
 
 
 
