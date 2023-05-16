@@ -12,7 +12,7 @@ public class Exec113 {
 
         Set<String> stringSet = new TreeSet<>();
 
-        try (Scanner scanner = new Scanner(new FileReader(new File("dest2.txt")))) {
+        try (Scanner scanner = new Scanner(new FileReader("dest2.txt"))) {
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
