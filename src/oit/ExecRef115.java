@@ -1,6 +1,7 @@
 package oit;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 public class ExecRef115 {
@@ -35,12 +36,18 @@ public class ExecRef115 {
             }
             System.out.println("--------------------------------------");
 
+            Method method1 = employeeClass.getDeclaredMethod("changeDepartment", String.class);
+            Method method2 = employeeClass.getMethod("increaseSalary");
+            System.out.println(method1.getReturnType() + " : " + Arrays.toString(method1.getParameterTypes()));
+
 
 
 
 
 
         } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
 

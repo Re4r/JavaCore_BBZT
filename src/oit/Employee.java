@@ -36,6 +36,10 @@ public class Employee {
         System.out.println("New Department >>> " + department);
     }
 
+    public void increaseSalary() {
+        salary *= 2;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
