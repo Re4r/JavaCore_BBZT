@@ -1,18 +1,23 @@
 package oit;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Exec113 {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Set<String> stringSet = new TreeSet<>();
 
-//        System.out.println("Enter digit: ");
-//        int i = scanner.nextInt();
-//        System.out.println("Digit: " + i);
+        try (Scanner scanner = new Scanner(new FileReader(new File("dest2.txt")))) {
 
-        String s = scanner.nextLine();
-        System.out.println(s);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 }
