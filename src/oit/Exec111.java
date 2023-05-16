@@ -5,3 +5,13 @@ public class Exec111 {
 
     }
 }
+
+enum WeekDays {
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    SUNDAY;
+}
