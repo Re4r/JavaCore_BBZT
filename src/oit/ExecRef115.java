@@ -67,7 +67,8 @@ public class ExecRef115 {
             }
             System.out.println("--------------------------------------");
 
-            Constructor<Employee> constructor = employeeClass.getConstructor();
+            Constructor<Employee> constructor =
+                    employeeClass.getConstructor(int.class, String.class, String.class, double.class);
             System.out.println(constructor);
             System.out.println("--------------------------------------");
 
