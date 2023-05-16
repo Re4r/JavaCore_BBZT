@@ -69,12 +69,12 @@ public class ExecRef115 {
 
             Constructor<Employee> constructor =
                     employeeClass.getConstructor(int.class, String.class, String.class, double.class);
-            System.out.println(constructor);
+            System.out.println(constructor + " : " + Arrays.toString(constructor.getParameterTypes()));
             System.out.println("--------------------------------------");
 
             Constructor<?>[] constructors = employeeClass.getConstructors();
             for (Constructor<?> constr : constructors) {
-                System.out.println(constr);
+                System.out.println(constr + " : " + constr.getParameterCount());
             }
             System.out.println("--------------------------------------");
 
