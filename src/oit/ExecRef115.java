@@ -1,5 +1,6 @@
 package oit;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -66,10 +67,15 @@ public class ExecRef115 {
             }
             System.out.println("--------------------------------------");
 
+            Constructor<Employee> constructor = employeeClass.getConstructor();
+            System.out.println(constructor);
+            System.out.println("--------------------------------------");
 
-
-
-
+            Constructor<?>[] constructors = employeeClass.getConstructors();
+            for (Constructor<?> constr : constructors) {
+                System.out.println(constr);
+            }
+            System.out.println("--------------------------------------");
 
         } catch (NoSuchFieldException e) {
             throw new RuntimeException(e);
