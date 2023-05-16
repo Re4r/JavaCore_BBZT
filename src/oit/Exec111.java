@@ -7,11 +7,19 @@ public class Exec111 {
 }
 
 enum WeekDays {
-    MONDAY,
-    TUESDAY,
-    WEDNESDAY,
-    THURSDAY,
-    FRIDAY,
-    SATURDAY,
-    SUNDAY;
+    MONDAY(":)"),
+    TUESDAY(":))"),
+    WEDNESDAY(":)))"),
+    THURSDAY(":))))"),
+    FRIDAY(":)))))"),
+    SATURDAY(":))))))"),
+    SUNDAY(":)))))))");
+
+    private String mood;
+
+    WeekDays(String mood) {
+        this.mood = mood;
+    }
+
+
 }
