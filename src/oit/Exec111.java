@@ -21,5 +21,7 @@ enum WeekDays {
         this.mood = mood;
     }
 
-
+    public String getMood() {
+        return mood;
+    }
 }
