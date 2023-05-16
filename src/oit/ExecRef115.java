@@ -29,6 +29,12 @@ public class ExecRef115 {
             }
             System.out.println("--------------------------------------");
 
+            Field [] fields1 = employeeClass.getDeclaredFields();
+            for (Field field : fields1) {
+                System.out.println(field);
+            }
+            System.out.println("--------------------------------------");
+
 
 
 
