@@ -2,6 +2,7 @@ package oit;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class ExecRef115 {
@@ -38,6 +39,7 @@ public class ExecRef115 {
 
             Method method1 = employeeClass.getDeclaredMethod("changeDepartment", String.class);
             Method method2 = employeeClass.getMethod("increaseSalary");
+
             System.out.printf("%s : %s%n", method1.getReturnType(), Arrays.toString(method1.getParameterTypes()));
             System.out.printf("%s : %s%n", method2.getReturnType(), Arrays.toString(method2.getParameterTypes()));
             System.out.println("--------------------------------------");
@@ -52,6 +54,15 @@ public class ExecRef115 {
 
             for (Method method : methods1) {
                 System.out.println(method);
+            }
+            System.out.println("--------------------------------------");
+
+            Method [] methods2 = employeeClass.getDeclaredMethods();
+
+            for (Method method : methods2) {
+                if (Modifier.isPrivate(method.getModifiers())) {
+                    System.out.println(method);
+                }
             }
             System.out.println("--------------------------------------");
 
