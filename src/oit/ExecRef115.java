@@ -38,7 +38,8 @@ public class ExecRef115 {
 
             Method method1 = employeeClass.getDeclaredMethod("changeDepartment", String.class);
             Method method2 = employeeClass.getMethod("increaseSalary");
-            System.out.println(method1.getReturnType() + " : " + Arrays.toString(method1.getParameterTypes()));
+            System.out.printf("%s : %s%n", method1.getReturnType(), Arrays.toString(method1.getParameterTypes()));
+            System.out.printf("%s : %s%n", method2.getReturnType(), Arrays.toString(method2.getParameterTypes()));
 
 
 
