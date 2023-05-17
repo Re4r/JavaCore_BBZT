@@ -3,15 +3,19 @@ package annotations;
 public class Exec117 {
 }
 
+@MyAnnotation
 class EmployeeYZ {
+    @MyAnnotation
     private String name;
     private double salary;
 
-    public EmployeeYZ(String name, double salary) {
+    @MyAnnotation
+    public EmployeeYZ(String name, @MyAnnotation double salary) {
         this.name = name;
         this.salary = salary;
     }
 
+    @MyAnnotation
     public void increaseSalary() {
         salary *= 2;
     }
@@ -23,4 +27,8 @@ class EmployeeYZ {
                 ", salary=" + salary +
                 '}';
     }
+}
+
+@interface MyAnnotation {
+
 }
