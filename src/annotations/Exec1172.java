@@ -8,6 +8,11 @@ import java.lang.annotation.Target;
 public class Exec1172 {
     public static void main(String[] args) {
 
+        Class<Xiaomi> xiaomiClass = Xiaomi.class;
+        Class<IPhone> iPhoneClass = IPhone.class;
+
+        SmartPhone smartPhone = xiaomiClass.getAnnotation(SmartPhone.class);
+
     }
 }
 
