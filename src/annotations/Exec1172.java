@@ -14,5 +14,19 @@ public class Exec1172 {
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @interface SmartPhone {
+    String os();
+    int yearOfCompanyCreation();
 
+}
+
+@SmartPhone(os = "Android", yearOfCompanyCreation = 2010)
+class Xiaomi {
+    String model;
+    double price;
+}
+
+@SmartPhone(os = "IOS", yearOfCompanyCreation = 1976)
+class IPhone {
+    String model;
+    double price;
 }
