@@ -1,5 +1,8 @@
 package annotations;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+
 public class Exec117 {
 }
 
@@ -29,6 +32,11 @@ class EmployeeYZ {
     }
 }
 
+@Target({ElementType.FIELD,
+        ElementType.CONSTRUCTOR,
+        ElementType.METHOD,
+        ElementType.PARAMETER,
+        ElementType.TYPE})
 @interface MyAnnotation {
 
 }
