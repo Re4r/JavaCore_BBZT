@@ -5,14 +5,15 @@ import java.lang.reflect.InvocationTargetException;
 
 public class ExecRef116 {
 
-    Class<Employee> employeeClass = Employee.class;
+    public static void main(String[] args) {
 
-    Constructor<Employee> employeeConstructor;
+        Class<Employee> employeeClass = Employee.class;
 
-    {
         try {
-            employeeConstructor = employeeClass.getConstructor();
-            Employee employee = employeeConstructor.newInstance();
+            Constructor<Employee> constructor = employeeClass.getConstructor();
+            Constructor<Employee> constructor1 = employeeClass.getConstructor(int.class, String.class, String.class);
+            Employee employee = constructor.newInstance();
+            Employee employee1 = constructor1.newInstance();
         } catch (NoSuchMethodException e) {
             throw new RuntimeException(e);
         } catch (InvocationTargetException e) {
@@ -23,6 +24,8 @@ public class ExecRef116 {
             throw new RuntimeException(e);
         }
     }
+
+
 
 
 }
