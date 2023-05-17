@@ -1,6 +1,8 @@
 package annotations;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 public class Exec117 {
@@ -37,6 +39,7 @@ class EmployeeYZ {
         ElementType.METHOD,
         ElementType.PARAMETER,
         ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
 @interface MyAnnotation {
 
 }
