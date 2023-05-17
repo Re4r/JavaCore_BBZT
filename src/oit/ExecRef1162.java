@@ -18,6 +18,10 @@ public class ExecRef1162 {
 
             System.out.println(salaryValue);
 
+            field.set(employee, 1500);
+
+            System.out.println(employee);
+
 
         } catch (NoSuchFieldException e) {
             throw new RuntimeException(e);
