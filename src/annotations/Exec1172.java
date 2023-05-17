@@ -12,6 +12,13 @@ public class Exec1172 {
         Class<IPhone> iPhoneClass = IPhone.class;
 
         SmartPhone smartPhone = xiaomiClass.getAnnotation(SmartPhone.class);
+        SmartPhone smartPhone1 = iPhoneClass.getAnnotation(SmartPhone.class);
+
+        System.out.println("------------");
+        System.out.println(smartPhone.os() + "\n" + smartPhone.yearOfCompanyCreation());
+        System.out.println("------------");
+        System.out.println(smartPhone1.os() + "\n" + smartPhone1.yearOfCompanyCreation());
+        System.out.println("------------");
 
     }
 }
