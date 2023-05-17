@@ -5,7 +5,7 @@ public class Employee {
     public int id;
     public String name;
     public String department;
-    private double salary;
+    private double salary = 1000;
 
     public Employee() {
     }
